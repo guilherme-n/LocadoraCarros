@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>LocadoraVeiculos</RootNamespace>
     <AssemblyName>LocadoraVeiculos</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,6 +72,12 @@
     <Compile Include="Model\VendedorEntidade.cs" />
     <Compile Include="Util\Enumeradores.cs" />
     <Compile Include="Util\Utilitarios.cs" />
+    <Compile Include="View\FormGerenciamentoVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormGerenciamentoVendedor.Designer.cs">
+      <DependentUpon>FormGerenciamentoVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormGerenciamentoPais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +102,12 @@
     <Compile Include="View\FormManutencaoMontadora.Designer.cs">
       <DependentUpon>FormManutencaoMontadora.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormManutencaoVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormManutencaoVendedor.Designer.cs">
+      <DependentUpon>FormManutencaoVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormPadrao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\FormGerenciamentoVendedor.resx">
+      <DependentUpon>FormGerenciamentoVendedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormGerenciamentoPais.resx">
       <DependentUpon>FormGerenciamentoPais.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormManutencaoMontadora.resx">
       <DependentUpon>FormManutencaoMontadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormManutencaoVendedor.resx">
+      <DependentUpon>FormManutencaoVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormPadrao.resx">
       <DependentUpon>FormPadrao.cs</DependentUpon>

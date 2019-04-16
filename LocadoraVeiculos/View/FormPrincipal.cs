@@ -31,5 +31,11 @@ namespace LocadoraVeiculos.View
             FormGerenciamentoPais vFormGerenciamentoPais = new FormGerenciamentoPais();
             vFormGerenciamentoPais.ShowDialog(this);
         }
+
+        private void vendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormGerenciamentoVendedor vFormGerenciamentoVendedor = new FormGerenciamentoVendedor();
+            vFormGerenciamentoVendedor.ShowDialog(this);
+        }
     }
 }
