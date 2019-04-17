@@ -10,16 +10,6 @@ namespace LocadoraVeiculos.View
             InitializeComponent();
         }
 
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void MontadoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormGerenciamentoMontadora vFormGerenciamentoMontadora = new FormGerenciamentoMontadora();
@@ -36,6 +26,17 @@ namespace LocadoraVeiculos.View
         {
             FormGerenciamentoVendedor vFormGerenciamentoVendedor = new FormGerenciamentoVendedor();
             vFormGerenciamentoVendedor.ShowDialog(this);
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormGerenciamentoCliente vFormGerenciamentoCliente = new FormGerenciamentoCliente();
+            vFormGerenciamentoCliente.ShowDialog(this);
+        }
+
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

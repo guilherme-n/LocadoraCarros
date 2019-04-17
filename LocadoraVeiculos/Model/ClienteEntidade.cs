@@ -13,5 +13,7 @@ namespace Model
         public string vCelular { get; set; }
         public string vSexo { get; set; }
         public DateTime dtDataCadastro { get; set; }
+
+        public EnderecoEntidade vEnderecoEntidade { get; set; }
     }
 }

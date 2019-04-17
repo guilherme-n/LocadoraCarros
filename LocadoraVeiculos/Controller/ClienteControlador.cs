@@ -9,16 +9,19 @@ namespace Controller
 {
     public class ClienteControlador
     {
-        private ClienteDAO aTbClienteDAO;
+        private ClienteDAO aClienteDAO;
+        private EnderecoDAO aEnderecoDAO;
 
         public ClienteControlador()
         {
-            this.aTbClienteDAO = new ClienteDAO();
+            this.aClienteDAO = new ClienteDAO();
+            this.aEnderecoDAO = new EnderecoDAO();
         }
 
         private ClienteEntidade fnMontarObjeto(SqlDataReader pSqlDataReader)
         {
             ClienteEntidade vClienteEntidade = new ClienteEntidade();
+            EnderecoEntidade vEnderecoEntidade = new EnderecoEntidade();
 
             vClienteEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iId"], DBNull.Value)) ? pSqlDataReader["iId"] : 0);
 
@@ -38,6 +41,28 @@ namespace Controller
 
             vClienteEntidade.dtDataCadastro = Convert.ToDateTime((!object.ReferenceEquals(pSqlDataReader["dtDataCadastro"], DBNull.Value)) ? pSqlDataReader["dtDataCadastro"] : DateTime.MinValue);
 
+            vEnderecoEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iId"], DBNull.Value)) ? pSqlDataReader["iId"] : 0);
+
+            vEnderecoEntidade.vLogradouro = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vLogradouro"], DBNull.Value)) ? pSqlDataReader["vLogradouro"] : string.Empty);
+
+            vEnderecoEntidade.iNumero = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iNumero"], DBNull.Value)) ? pSqlDataReader["iNumero"] : 0);
+
+            vEnderecoEntidade.vComplemento = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vComplemento"], DBNull.Value)) ? pSqlDataReader["vComplemento"] : string.Empty);
+
+            vEnderecoEntidade.vBairro = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vBairro"], DBNull.Value)) ? pSqlDataReader["vBairro"] : string.Empty);
+
+            vEnderecoEntidade.vCidade = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vCidade"], DBNull.Value)) ? pSqlDataReader["vCidade"] : string.Empty);
+
+            vEnderecoEntidade.vEstado = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vEstado"], DBNull.Value)) ? pSqlDataReader["vEstado"] : string.Empty);
+
+            vEnderecoEntidade.vCep = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vCep"], DBNull.Value)) ? pSqlDataReader["vCep"] : string.Empty);
+
+            vEnderecoEntidade.vObs = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vObs"], DBNull.Value)) ? pSqlDataReader["vObs"] : string.Empty);
+
+            vEnderecoEntidade.iIdTbCliente = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdTbCliente"], DBNull.Value)) ? pSqlDataReader["iIdTbCliente"] : 0);
+
+            vClienteEntidade.vEnderecoEntidade = vEnderecoEntidade;
+
             return vClienteEntidade;
         }
 
@@ -46,7 +71,7 @@ namespace Controller
             List<ClienteEntidade> vListClienteEntidade = new List<ClienteEntidade>();
             try
             {
-                SqlDataReader vSqlDataReader = this.aTbClienteDAO.Consultar(pClienteEntidade);
+                SqlDataReader vSqlDataReader = this.aClienteDAO.Consultar(pClienteEntidade);
                 while (vSqlDataReader.Read())
                 {
                     vListClienteEntidade.Add(this.fnMontarObjeto(vSqlDataReader));
@@ -69,7 +94,9 @@ namespace Controller
             try
             {
                 pClienteEntidade.iId = 0;
-                pClienteEntidade.iId = this.aTbClienteDAO.Incluir(pClienteEntidade);
+                pClienteEntidade.iId = this.aClienteDAO.Incluir(pClienteEntidade);
+                pClienteEntidade.vEnderecoEntidade.iId = this.aEnderecoDAO.Incluir(pClienteEntidade.vEnderecoEntidade);
+
                 return pClienteEntidade;
             }
             catch (Exception ex)
@@ -82,7 +109,8 @@ namespace Controller
         {
             try
             {
-                this.aTbClienteDAO.Alterar(pClienteEntidade);
+                this.aClienteDAO.Alterar(pClienteEntidade);
+                this.aEnderecoDAO.Alterar(pClienteEntidade.vEnderecoEntidade);
             }
             catch (Exception ex)
             {
@@ -99,7 +127,8 @@ namespace Controller
         {
             try
             {
-                this.aTbClienteDAO.Excluir(pClienteEntidade);
+                this.aEnderecoDAO.Excluir(pClienteEntidade.vEnderecoEntidade);
+                this.aClienteDAO.Excluir(pClienteEntidade);
             }
             catch (Exception ex)
             {

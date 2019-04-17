@@ -12,7 +12,6 @@ namespace Model
         public string vCidade { get; set; }
         public string vEstado { get; set; }
         public string vCep { get; set; }
-        public DateTime dtDataCriacao { get; set; }
         public string vObs { get; set; }
         public int iIdTbCliente { get; set; }
     }

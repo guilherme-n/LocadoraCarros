@@ -63,8 +63,6 @@ namespace LocadoraVeiculos.DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvCep", DbType.String, pEnderecoEntidade.vCep));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtDataCriacao", DbType.DateTime, pEnderecoEntidade.dtDataCriacao));
-
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvObs", DbType.String, pEnderecoEntidade.vObs));
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbCliente", DbType.Int32, pEnderecoEntidade.iIdTbCliente));
