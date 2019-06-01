@@ -67,9 +67,11 @@ namespace LocadoraVeiculos.View
                 vEnderecoEntidade.vComplemento = TxtComplemento.Text;
                 vEnderecoEntidade.vBairro = TxtBairro.Text;
                 vEnderecoEntidade.vCidade = TxtCidade.Text;
-                vEnderecoEntidade.vEstado = CboEstado.SelectedValue.ToString();
+                vEnderecoEntidade.vEstado = CboEstado.Text;
                 vEnderecoEntidade.vCep = TxtCep.Text;
                 vEnderecoEntidade.vObs = TxtObservacao.Text;
+
+                vClienteEntidade.vEnderecoEntidade = vEnderecoEntidade;
 
                 ClienteControlador vTbClienteControlador = new ClienteControlador();
 

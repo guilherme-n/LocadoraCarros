@@ -12,9 +12,9 @@ namespace LocadoraVeiculos.DAO
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
 
-            if (pClienteEntidade.iId > 0)
+            if (!String.IsNullOrWhiteSpace(pClienteEntidade.vNome))
             {
-                vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pClienteEntidade.iId));
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@pvNome", DbType.String, pClienteEntidade.vNome));
             }
 
             return Conexao.ExecuteReader("SPSel_TbCliente", vListOfSqlParameter);
@@ -63,7 +63,7 @@ namespace LocadoraVeiculos.DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvSexo", DbType.String, pClienteEntidade.vSexo));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtDataCadastro", DbType.DateTime, pClienteEntidade.dtDataCadastro));
+            //vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtDataCadastro", DbType.DateTime, pClienteEntidade.dtDataCadastro));
 
             return vListOfSqlParameter;
         }

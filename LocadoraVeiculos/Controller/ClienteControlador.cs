@@ -95,6 +95,7 @@ namespace Controller
             {
                 pClienteEntidade.iId = 0;
                 pClienteEntidade.iId = this.aClienteDAO.Incluir(pClienteEntidade);
+                pClienteEntidade.vEnderecoEntidade.iIdTbCliente = pClienteEntidade.iId;
                 pClienteEntidade.vEnderecoEntidade.iId = this.aEnderecoDAO.Incluir(pClienteEntidade.vEnderecoEntidade);
 
                 return pClienteEntidade;
