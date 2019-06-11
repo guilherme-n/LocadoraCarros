@@ -35,6 +35,15 @@ namespace LocadoraVeiculos.View
                 TxtEmail.Text = aClienteEntidade.vEmail;
                 TxtCelular.Text = aClienteEntidade.vCelular;
 
+                TxtLogradouro.Text = aClienteEntidade.vEnderecoEntidade.vLogradouro;
+                TxtNumero.Text = aClienteEntidade.vEnderecoEntidade.iNumero.ToString();
+                TxtComplemento.Text = aClienteEntidade.vEnderecoEntidade.vComplemento;
+                TxtBairro.Text = aClienteEntidade.vEnderecoEntidade.vBairro;
+                TxtCidade.Text = aClienteEntidade.vEnderecoEntidade.vCidade;
+                CboEstado.Text = aClienteEntidade.vEnderecoEntidade.vEstado;
+                TxtCep.Text = aClienteEntidade.vEnderecoEntidade.vCep;
+                TxtObservacao.Text = aClienteEntidade.vEnderecoEntidade.vObs;
+
                 BtnCadastrar.Text = "&Alterar";
             }
         }
@@ -70,6 +79,11 @@ namespace LocadoraVeiculos.View
                 vEnderecoEntidade.vEstado = CboEstado.Text;
                 vEnderecoEntidade.vCep = TxtCep.Text;
                 vEnderecoEntidade.vObs = TxtObservacao.Text;
+
+                if(aClienteEntidade != null)
+                {
+                    vEnderecoEntidade.iId = aClienteEntidade.vEnderecoEntidade.iId;
+                }
 
                 vClienteEntidade.vEnderecoEntidade = vEnderecoEntidade;
 

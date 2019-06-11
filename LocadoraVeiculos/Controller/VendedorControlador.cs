@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Model;
 using LocadoraVeiculos.DAO;
+using Controller;
 
 namespace Controller
 {
@@ -31,18 +32,31 @@ namespace Controller
 
             vVendedorEntidade.dtDataDemissao = Convert.ToDateTime((!object.ReferenceEquals(pSqlDataReader["dtDataDemissao"], DBNull.Value)) ? pSqlDataReader["dtDataDemissao"] : DateTime.MinValue);
 
+            vVendedorEntidade.vNome = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vNome"], DBNull.Value)) ? pSqlDataReader["vNome"] : string.Empty);
+
+            vVendedorEntidade.vLogin = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vLogin"], DBNull.Value)) ? pSqlDataReader["vLogin"] : string.Empty);
+
+            vVendedorEntidade.vSenha = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vSenha"], DBNull.Value)) ? pSqlDataReader["vSenha"] : string.Empty);
+
+            vVendedorEntidade.bAtivo = Convert.ToBoolean((!object.ReferenceEquals(pSqlDataReader["bAtivo"], DBNull.Value)) ? pSqlDataReader["bAtivo"] : string.Empty);
+
             return vVendedorEntidade;
         }
+
 
         public List<VendedorEntidade> Consultar(VendedorEntidade pVendedorEntidade)
         {
             List<VendedorEntidade> vListVendedorEntidade = new List<VendedorEntidade>();
+
+            UsuarioEntidade v = new VendedorEntidade();
+
+            VendedorEntidade vVendedorEntidade = (VendedorEntidade)pVendedorEntidade;
             try
             {
-                SqlDataReader vSqlDataReader = this.aTbVendedorDAO.Consultar(pVendedorEntidade);
+                SqlDataReader vSqlDataReader = this.aTbVendedorDAO.Consultar(vVendedorEntidade);
                 while (vSqlDataReader.Read())
                 {
-                    vListVendedorEntidade.Add(this.fnMontarObjeto(vSqlDataReader));
+                    vListVendedorEntidade.Add((VendedorEntidade)this.fnMontarObjeto(vSqlDataReader));
                 }
             }
             catch (Exception ex)

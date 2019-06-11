@@ -9,7 +9,6 @@ namespace Model
         public string vModelo { get; set; }
         public DateTime dtAnoFabricacao { get; set; }
         public int iQtdLugares { get; set; }
-        public int iIdCategoria { get; set; }
         public bool bTracaoNasQuatroRodas { get; set; }
         public int iIdMotor { get; set; }
         public string vCor { get; set; }

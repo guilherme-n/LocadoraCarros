@@ -35,9 +35,10 @@
             this.montadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,13 +60,13 @@
             this.locacaoDeVeiculoToolStripMenuItem});
             this.servicosToolStripMenuItem.Name = "servicosToolStripMenuItem";
             this.servicosToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.servicosToolStripMenuItem.Text = "&Servicos";
+            this.servicosToolStripMenuItem.Text = "&Serviços";
             // 
             // locacaoDeVeiculoToolStripMenuItem
             // 
             this.locacaoDeVeiculoToolStripMenuItem.Name = "locacaoDeVeiculoToolStripMenuItem";
             this.locacaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.locacaoDeVeiculoToolStripMenuItem.Text = "&Locacao de veiculo";
+            this.locacaoDeVeiculoToolStripMenuItem.Text = "&Locação de veículo";
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -73,7 +74,8 @@
             this.montadoraToolStripMenuItem,
             this.paisToolStripMenuItem,
             this.vendedorToolStripMenuItem,
-            this.clienteToolStripMenuItem});
+            this.clienteToolStripMenuItem,
+            this.veículoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "&Cadastros";
@@ -82,22 +84,29 @@
             // 
             this.montadoraToolStripMenuItem.Name = "montadoraToolStripMenuItem";
             this.montadoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.montadoraToolStripMenuItem.Text = "Montadora";
+            this.montadoraToolStripMenuItem.Text = "&Montadora";
             this.montadoraToolStripMenuItem.Click += new System.EventHandler(this.MontadoraToolStripMenuItem_Click);
             // 
             // paisToolStripMenuItem
             // 
             this.paisToolStripMenuItem.Name = "paisToolStripMenuItem";
             this.paisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.paisToolStripMenuItem.Text = "Pais";
+            this.paisToolStripMenuItem.Text = "&País";
             this.paisToolStripMenuItem.Click += new System.EventHandler(this.PaisToolStripMenuItem_Click);
             // 
             // vendedorToolStripMenuItem
             // 
             this.vendedorToolStripMenuItem.Name = "vendedorToolStripMenuItem";
             this.vendedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vendedorToolStripMenuItem.Text = "Vendedor";
+            this.vendedorToolStripMenuItem.Text = "&Vendedor";
             this.vendedorToolStripMenuItem.Click += new System.EventHandler(this.vendedorToolStripMenuItem_Click);
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Text = "&Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
@@ -114,12 +123,12 @@
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
-            // clienteToolStripMenuItem
+            // veículoToolStripMenuItem
             // 
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clienteToolStripMenuItem.Text = "Cliente";
-            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
+            this.veículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veículoToolStripMenuItem.Text = "&Veículo";
+            this.veículoToolStripMenuItem.Click += new System.EventHandler(this.veículoToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -132,6 +141,7 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora de Veiculos";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -151,6 +161,7 @@
         private System.Windows.Forms.ToolStripMenuItem paisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem veículoToolStripMenuItem;
     }
 }
 

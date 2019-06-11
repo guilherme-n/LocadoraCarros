@@ -29,8 +29,6 @@ namespace Controller
 
             vVeiculoEntidade.iQtdLugares = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iQtdLugares"], DBNull.Value)) ? pSqlDataReader["iQtdLugares"] : 0);
 
-            vVeiculoEntidade.iIdCategoria = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdCategoria"], DBNull.Value)) ? pSqlDataReader["iIdCategoria"] : 0);
-
             vVeiculoEntidade.bTracaoNasQuatroRodas = Convert.ToBoolean((!object.ReferenceEquals(pSqlDataReader["bTracaoNasQuatroRodas"], DBNull.Value)) ? pSqlDataReader["bTracaoNasQuatroRodas"] : false);
 
             vVeiculoEntidade.iIdMotor = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdMotor"], DBNull.Value)) ? pSqlDataReader["iIdMotor"] : 0);

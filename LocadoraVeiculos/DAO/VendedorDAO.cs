@@ -17,9 +17,17 @@ namespace LocadoraVeiculos.DAO
             {
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pVendedorEntidade.iId));
             }
-            else if (!string.IsNullOrWhiteSpace(pVendedorEntidade.vNome))
+            if (!string.IsNullOrWhiteSpace(pVendedorEntidade.vNome))
             {
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@pvNome", DbType.String, pVendedorEntidade.vNome));
+            }
+            if (!string.IsNullOrWhiteSpace(pVendedorEntidade.vLogin))
+            {
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@pvLogin", DbType.String, pVendedorEntidade.vLogin));
+            }
+            if (!string.IsNullOrWhiteSpace(pVendedorEntidade.vSenha))
+            {
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@pvSenha", DbType.String, pVendedorEntidade.vSenha));
             }
 
             return Conexao.ExecuteReader("SPSel_TbVendedor", vListOfSqlParameter);

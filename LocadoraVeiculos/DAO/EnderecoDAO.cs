@@ -65,8 +65,6 @@ namespace LocadoraVeiculos.DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvObs", DbType.String, pEnderecoEntidade.vObs));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbCliente", DbType.Int32, pEnderecoEntidade.iIdTbCliente));
-
             return vListOfSqlParameter;
         }
     }

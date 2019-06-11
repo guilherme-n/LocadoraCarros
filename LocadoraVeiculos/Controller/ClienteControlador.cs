@@ -41,7 +41,7 @@ namespace Controller
 
             vClienteEntidade.dtDataCadastro = Convert.ToDateTime((!object.ReferenceEquals(pSqlDataReader["dtDataCadastro"], DBNull.Value)) ? pSqlDataReader["dtDataCadastro"] : DateTime.MinValue);
 
-            vEnderecoEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iId"], DBNull.Value)) ? pSqlDataReader["iId"] : 0);
+            vEnderecoEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdEndereco"], DBNull.Value)) ? pSqlDataReader["iIdEndereco"] : 0);
 
             vEnderecoEntidade.vLogradouro = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vLogradouro"], DBNull.Value)) ? pSqlDataReader["vLogradouro"] : string.Empty);
 

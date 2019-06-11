@@ -56,8 +56,6 @@ namespace LocadoraVeiculos.DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@piQtdLugares", DbType.Int32, pVeiculoEntidade.iQtdLugares));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdCategoria", DbType.Int32, pVeiculoEntidade.iIdCategoria));
-
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pbTracaoNasQuatroRodas", DbType.Boolean, pVeiculoEntidade.bTracaoNasQuatroRodas));
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdMotor", DbType.Int32, pVeiculoEntidade.iIdMotor));

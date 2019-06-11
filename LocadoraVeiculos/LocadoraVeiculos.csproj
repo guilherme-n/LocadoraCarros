@@ -51,6 +51,7 @@
     <Compile Include="Controller\MontadoraControlador.cs" />
     <Compile Include="Controller\MontadoraPaisControlador.cs" />
     <Compile Include="Controller\PaisControlador.cs" />
+    <Compile Include="Controller\UsuarioControlador.cs" />
     <Compile Include="Controller\VeiculoControlador.cs" />
     <Compile Include="Controller\VendedorControlador.cs" />
     <Compile Include="DAO\Conexao.cs" />
@@ -77,6 +78,12 @@
     <Compile Include="View\FormGerenciamentoCliente.Designer.cs">
       <DependentUpon>FormGerenciamentoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormGerenciamentoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormGerenciamentoVeiculo.Designer.cs">
+      <DependentUpon>FormGerenciamentoVeiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormGerenciamentoVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +102,18 @@
     <Compile Include="View\FormGerenciamentoMontadora.Designer.cs">
       <DependentUpon>FormGerenciamentoMontadora.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormLocacaoVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLocacaoVeiculos.Designer.cs">
+      <DependentUpon>FormLocacaoVeiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormManutencaoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +131,12 @@
     </Compile>
     <Compile Include="View\FormManutencaoMontadora.Designer.cs">
       <DependentUpon>FormManutencaoMontadora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormManutencaoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormManutencaoVeiculo.Designer.cs">
+      <DependentUpon>FormManutencaoVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormManutencaoVendedor.cs">
       <SubType>Form</SubType>
@@ -136,6 +161,9 @@
     <EmbeddedResource Include="View\FormGerenciamentoCliente.resx">
       <DependentUpon>FormGerenciamentoCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormGerenciamentoVeiculo.resx">
+      <DependentUpon>FormGerenciamentoVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormGerenciamentoVendedor.resx">
       <DependentUpon>FormGerenciamentoVendedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +173,12 @@
     <EmbeddedResource Include="View\FormGerenciamentoMontadora.resx">
       <DependentUpon>FormGerenciamentoMontadora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLocacaoVeiculos.resx">
+      <DependentUpon>FormLocacaoVeiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormManutencaoCliente.resx">
       <DependentUpon>FormManutencaoCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormManutencaoMontadora.resx">
       <DependentUpon>FormManutencaoMontadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormManutencaoVeiculo.resx">
+      <DependentUpon>FormManutencaoVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormManutencaoVendedor.resx">
       <DependentUpon>FormManutencaoVendedor.cs</DependentUpon>

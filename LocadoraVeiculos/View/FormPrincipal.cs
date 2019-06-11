@@ -38,5 +38,17 @@ namespace LocadoraVeiculos.View
         {
             this.Close();
         }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            //FormLogin vFormLogin = new FormLogin();
+            //vFormLogin.ShowDialog(this);
+        }
+
+        private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormGerenciamentoVeiculo vFormGerenciamentoVeiculo = new FormGerenciamentoVeiculo();
+            vFormGerenciamentoVeiculo.ShowDialog(this);
+        }
     }
 }

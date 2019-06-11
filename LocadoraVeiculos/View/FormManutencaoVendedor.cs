@@ -37,10 +37,12 @@ namespace LocadoraVeiculos.View
                 TxtCpf.Text = aVendedorEntidade.vCpf;
                 TxtLogin.Text = aVendedorEntidade.vLogin;
 
-                //TxtLogin.Text = aVendedorEntidade.vIdiomaPrincipal;
-                //TxtSenha.Text = aVendedorEntidade.iAnoFundacao.ToString();
-                //TxtPib.Text = aVendedorEntidade.dPibEmDolar.ToString();
-                //TxtQtdHabitantes.Text = aVendedorEntidade.iQtdHabitantes.ToString();
+                TxtSenha.Text = aVendedorEntidade.vSenha;
+                DtDataAdmissao.Value = aVendedorEntidade.dtDataAdmissao;
+                TxtPercentualComissao.Text = aVendedorEntidade.iPercentualComissao.ToString();
+                DtDataDemissao.Value = aVendedorEntidade.dtDataDemissao;
+                RbtAtivo.Checked = aVendedorEntidade.bAtivo;
+                RbtInativo.Checked = !aVendedorEntidade.bAtivo;
 
                 BtnCadastrar.Text = "&Alterar";
             }
@@ -53,10 +55,13 @@ namespace LocadoraVeiculos.View
                 VendedorEntidade vVendedorEntidade = new VendedorEntidade();
 
                 vVendedorEntidade.vNome = TxtNome.Text;
-                //vVendedorEntidade.vIdiomaPrincipal = TxtLogin.Text;
-                //vVendedorEntidade.iAnoFundacao = Convert.ToInt16(TxtSenha.Text);
-                //vVendedorEntidade.dPibEmDolar = Convert.ToDecimal(TxtPib.Text.Replace(" ", ""));
-                //vVendedorEntidade.iQtdHabitantes = Convert.ToInt64(TxtQtdHabitantes.Text.Replace(" ", ""));
+                vVendedorEntidade.vCpf = TxtCpf.Text;
+                vVendedorEntidade.vLogin = TxtLogin.Text;
+                vVendedorEntidade.vSenha = TxtSenha.Text;
+                vVendedorEntidade.dtDataAdmissao = DtDataAdmissao.Value;
+                vVendedorEntidade.iPercentualComissao = int.Parse(TxtPercentualComissao.Text);
+                vVendedorEntidade.dtDataDemissao = DtDataDemissao.Value;
+                vVendedorEntidade.bAtivo = RbtAtivo.Checked;
 
                 VendedorControlador vTbVendedorControlador = new VendedorControlador();
 
