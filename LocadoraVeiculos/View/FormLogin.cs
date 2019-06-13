@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Controller;
 using Model;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormLogin : FormPadrao
     {
@@ -36,9 +36,9 @@ namespace LocadoraVeiculos.View
                 vVendedorEntidade.vSenha = TxtSenha.Text;
 
                 VendedorControlador vVendedorControlador = new VendedorControlador();
-                List<VendedorEntidade> vListOfVendedorEntidade = vVendedorControlador.Consultar(vVendedorEntidade);
+                List<UsuarioEntidade> vListOfUsuarioEntidade = vVendedorControlador.Consultar(vVendedorEntidade);
 
-                if(vListOfVendedorEntidade.Count == 0)
+                if(vListOfUsuarioEntidade.Count == 0)
                 {
                     MessageBox.Show("Login/senha errados"
                                     , "Aviso"
@@ -64,10 +64,12 @@ namespace LocadoraVeiculos.View
             try
             {
                 //carrega o combo de vendedores
-                VendedorControlador vVendedorControlador = new VendedorControlador();
+                UsuarioControlador vUsuarioControlador = new VendedorControlador();
                 CboLogin.ValueMember = "iId";
                 CboLogin.DisplayMember = "vLogin";
-                CboLogin.DataSource= vVendedorControlador.Consultar(new VendedorEntidade());
+
+                //POLIMORFISMO, em tempo de execucao, o sistema sabe que o metodo consultar é da classe vendedor
+                CboLogin.DataSource = vUsuarioControlador.Consultar(new VendedorEntidade());
 
                 //coloca o foco para o campo da senha
                 this.ActiveControl = TxtSenha;

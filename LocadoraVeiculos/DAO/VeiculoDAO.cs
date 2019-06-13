@@ -4,17 +4,22 @@ using System.Collections.Generic;
 using Model;
 using System.Data.SqlClient;
 
-namespace LocadoraVeiculos.DAO
+namespace DAO
 {
     public class VeiculoDAO
     {
-        public SqlDataReader Consultar(VeiculoEntidade pVeiculoEntidade)
+        public SqlDataReader Consultar(VeiculoEntidade pVeiculoEntidade, bool pApenasDisponiveis)
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
 
             if (pVeiculoEntidade.iId > 0)
             {
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pVeiculoEntidade.iId));
+            }
+
+            if(pApenasDisponiveis)
+            {
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@pbApenasDisponiveis", DbType.Boolean, true));
             }
 
             return Conexao.ExecuteReader("SPSel_TbVeiculo", vListOfSqlParameter);
@@ -48,21 +53,15 @@ namespace LocadoraVeiculos.DAO
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pVeiculoEntidade.iId));
             }
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdMontadora", DbType.Int32, pVeiculoEntidade.iIdMontadora));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdMontadora", DbType.Int32, pVeiculoEntidade.vMontadoraEntidade.iId));
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvModelo", DbType.String, pVeiculoEntidade.vModelo));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtAnoFabricacao", DbType.DateTime, pVeiculoEntidade.dtAnoFabricacao));
-
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piQtdLugares", DbType.Int32, pVeiculoEntidade.iQtdLugares));
-
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pbTracaoNasQuatroRodas", DbType.Boolean, pVeiculoEntidade.bTracaoNasQuatroRodas));
-
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdMotor", DbType.Int32, pVeiculoEntidade.iIdMotor));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piAnoFabricacao", DbType.Int32, pVeiculoEntidade.iAnoFabricacao));
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvCor", DbType.String, pVeiculoEntidade.vCor));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piPesoEmKg", DbType.Int32, pVeiculoEntidade.iPesoEmKg));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piQtd", DbType.Int32, pVeiculoEntidade.iQtd));
 
             return vListOfSqlParameter;
         }

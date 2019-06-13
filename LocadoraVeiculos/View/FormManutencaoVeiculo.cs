@@ -2,17 +2,17 @@
 using Model;
 using Controller;
 using System.Windows.Forms;
-using LocadoraVeiculos.Util;
+using Util;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormManutencaoVeiculo : FormPadrao
     {
 
         private Enumeradores.EnumEstadoForm aEstadoForm;
-        private MontadoraEntidade aMontadoraEntidade;
+        private VeiculoEntidade aVeiculoEntidade;
 
-        public FormManutencaoVeiculo(Enumeradores.EnumEstadoForm pEstadoForm, MontadoraEntidade pMontadoraEntidade)
+        public FormManutencaoVeiculo(Enumeradores.EnumEstadoForm pEstadoForm, VeiculoEntidade pVeiculoEntidade)
         {
             InitializeComponent();
 
@@ -20,51 +20,66 @@ namespace LocadoraVeiculos.View
 
             if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
             {
-                aMontadoraEntidade = pMontadoraEntidade;
+                aVeiculoEntidade = pVeiculoEntidade;
             }
         }
 
-        private void FormManutencaoMontadora_Load(object sender, EventArgs e)
+        private void FormManutencaoVeiculo_Load(object sender, EventArgs e)
         {
-            if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
+            try
             {
-                TxtNome.Text = aMontadoraEntidade.vNome;
-                TxtCidadeFundacao.Text = aMontadoraEntidade.vCidadeFundacao;
-                DtDataFundacao.Value = aMontadoraEntidade.dtDataFundacao;
-                TxtFaturamento.Text = aMontadoraEntidade.dFaturamentoEmDolar.ToString();
-                TxtLucroAnual.Text = aMontadoraEntidade.dLucroAnualEmDolar.ToString();
-                TxtQtdFabricas.Text = aMontadoraEntidade.iQtdFabricas.ToString();
+                //carrega o combo de montadoras
+                MontadoraControlador vMontadoraControlador = new MontadoraControlador();
+                CboMontadora.ValueMember = "iId";
+                CboMontadora.DisplayMember = "vNome";
+                CboMontadora.DataSource = vMontadoraControlador.Consultar(new MontadoraEntidade());
 
-                BtnCadastrar.Text = "&Alterar";
+                if (aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
+                {
+                    TxtModelo.Text = aVeiculoEntidade.vModelo;
+                    CboMontadora.SelectedValue = aVeiculoEntidade.vMontadoraEntidade.iId;
+                    TxtAnoFabricacao.Text = aVeiculoEntidade.iAnoFabricacao.ToString();
+                    TxtCor.Text = aVeiculoEntidade.vCor;
+                    TxtQtd.Text = aVeiculoEntidade.iQtd.ToString();
+
+                    BtnCadastrar.Text = "&Alterar";
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message
+                                , "Erro"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Error);
             }
+
         }
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                MontadoraEntidade vMontadoraEntidade = new MontadoraEntidade();
+                VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
 
-                vMontadoraEntidade.vNome = TxtNome.Text;
-                vMontadoraEntidade.vCidadeFundacao = TxtCidadeFundacao.Text;
-                vMontadoraEntidade.dtDataFundacao = DtDataFundacao.Value;
-                vMontadoraEntidade.dLucroAnualEmDolar =  Convert.ToDecimal(TxtLucroAnual.Text);
-                vMontadoraEntidade.dFaturamentoEmDolar = Convert.ToDecimal(TxtFaturamento.Text);
-                vMontadoraEntidade.iQtdFabricas = Convert.ToInt32(TxtQtdFabricas.Text);
+                vVeiculoEntidade.vModelo = TxtModelo.Text;
+                vVeiculoEntidade.vMontadoraEntidade.iId = Int32.Parse(CboMontadora.SelectedValue.ToString());
+                vVeiculoEntidade.iAnoFabricacao = Int32.Parse(TxtAnoFabricacao.Text);
+                vVeiculoEntidade.vCor = TxtCor.Text;
+                vVeiculoEntidade.iQtd = Int32.Parse(TxtQtd.Text);
+                vVeiculoEntidade.iQtdDisponivel = vVeiculoEntidade.iQtd;
 
-                MontadoraControlador vTbMontadoraControlador = new MontadoraControlador();
+                VeiculoControlador vTbVeiculoControlador = new VeiculoControlador();
 
                 if(aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
                 {
-                    vTbMontadoraControlador.Incluir(vMontadoraEntidade);
+                    vTbVeiculoControlador.Incluir(vVeiculoEntidade);
                 }
                 else
                 {
-                    vMontadoraEntidade.iId = aMontadoraEntidade.iId;
-                    vTbMontadoraControlador.Alterar(vMontadoraEntidade);
+                    vVeiculoEntidade.iId = aVeiculoEntidade.iId;
+                    vTbVeiculoControlador.Alterar(vVeiculoEntidade);
                 }
 
-                MessageBox.Show("Montadora salva com sucesso"
+                MessageBox.Show("Veiculo salva com sucesso"
                                , "Informacao"
                                , MessageBoxButtons.OK
                                , MessageBoxIcon.Information);
@@ -88,6 +103,11 @@ namespace LocadoraVeiculos.View
         }
 
         private void TxtQtdFabricas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilitarios.PermitirApenasNumeroKeyPress(e);
+        }
+
+        private void TxtAnoFabricacao_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
         }

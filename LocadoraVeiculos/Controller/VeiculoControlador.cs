@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
-using LocadoraVeiculos.DAO;
+using DAO;
 using System.Data.SqlClient;
 
 namespace Controller
@@ -21,34 +21,39 @@ namespace Controller
 
             vVeiculoEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iId"], DBNull.Value)) ? pSqlDataReader["iId"] : 0);
 
-            vVeiculoEntidade.iIdMontadora = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdMontadora"], DBNull.Value)) ? pSqlDataReader["iIdMontadora"] : 0);
+            vVeiculoEntidade.vMontadoraEntidade.iId= Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdMontadora"], DBNull.Value)) ? pSqlDataReader["iIdMontadora"] : 0);
 
             vVeiculoEntidade.vModelo = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vModelo"], DBNull.Value)) ? pSqlDataReader["vModelo"] : string.Empty);
 
-            vVeiculoEntidade.dtAnoFabricacao = Convert.ToDateTime((!object.ReferenceEquals(pSqlDataReader["dtAnoFabricacao"], DBNull.Value)) ? pSqlDataReader["dtAnoFabricacao"] : DateTime.MinValue);
+            vVeiculoEntidade.iAnoFabricacao = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iAnoFabricacao"], DBNull.Value)) ? pSqlDataReader["iAnoFabricacao"] : 0);
 
-            vVeiculoEntidade.iQtdLugares = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iQtdLugares"], DBNull.Value)) ? pSqlDataReader["iQtdLugares"] : 0);
+            vVeiculoEntidade.iQtd = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iQtd"], DBNull.Value)) ? pSqlDataReader["iQtd"] : 0);
 
-            vVeiculoEntidade.bTracaoNasQuatroRodas = Convert.ToBoolean((!object.ReferenceEquals(pSqlDataReader["bTracaoNasQuatroRodas"], DBNull.Value)) ? pSqlDataReader["bTracaoNasQuatroRodas"] : false);
-
-            vVeiculoEntidade.iIdMotor = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdMotor"], DBNull.Value)) ? pSqlDataReader["iIdMotor"] : 0);
+            vVeiculoEntidade.iQtdDisponivel = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iQtdDisponivel"], DBNull.Value)) ? pSqlDataReader["iQtdDisponivel"] : 0);
 
             vVeiculoEntidade.vCor = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vCor"], DBNull.Value)) ? pSqlDataReader["vCor"] : string.Empty);
-
-            vVeiculoEntidade.iPesoEmKg = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iPesoEmKg"], DBNull.Value)) ? pSqlDataReader["iPesoEmKg"] : 0);
 
             return vVeiculoEntidade;
         }
 
-        public List<VeiculoEntidade> Consultar(VeiculoEntidade pVeiculoEntidade)
+        public List<VeiculoEntidade> Consultar(VeiculoEntidade pVeiculoEntidade, bool pApenasDisponiveis)
         {
             List<VeiculoEntidade> vListVeiculoEntidade = new List<VeiculoEntidade>();
             try
             {
-                SqlDataReader vSqlDataReader = this.aTbVeiculoDAO.Consultar(pVeiculoEntidade);
+                SqlDataReader vSqlDataReader = this.aTbVeiculoDAO.Consultar(pVeiculoEntidade, pApenasDisponiveis);
                 while (vSqlDataReader.Read())
                 {
-                    vListVeiculoEntidade.Add(this.fnMontarObjeto(vSqlDataReader));
+                    VeiculoEntidade vVeiculoEntidade = this.fnMontarObjeto(vSqlDataReader);
+                    vListVeiculoEntidade.Add(vVeiculoEntidade);                    
+                }
+
+                //Fecha a conexao para consultar as montadoras
+                Conexao.CloseConnection();
+
+                foreach (var vVeiculoEntidade in vListVeiculoEntidade)
+                {
+                    vVeiculoEntidade.vMontadoraEntidade = (new MontadoraControlador().Consultar(vVeiculoEntidade.vMontadoraEntidade))[0];
                 }
             }
             catch (Exception ex)

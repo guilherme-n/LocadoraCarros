@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using Model;
 
-namespace LocadoraVeiculos.DAO
+namespace DAO
 {
     public class ClienteDAO
     {
@@ -12,9 +12,16 @@ namespace LocadoraVeiculos.DAO
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
 
-            if (!String.IsNullOrWhiteSpace(pClienteEntidade.vNome))
+            if (pClienteEntidade.iId > 0)
             {
-                vListOfSqlParameter.Add(Conexao.CriarParametro("@pvNome", DbType.String, pClienteEntidade.vNome));
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pClienteEntidade.iId));
+            }
+            else
+            {
+                if (!String.IsNullOrWhiteSpace(pClienteEntidade.vNome))
+                {
+                    vListOfSqlParameter.Add(Conexao.CriarParametro("@pvNome", DbType.String, pClienteEntidade.vNome));
+                }
             }
 
             return Conexao.ExecuteReader("SPSel_TbCliente", vListOfSqlParameter);

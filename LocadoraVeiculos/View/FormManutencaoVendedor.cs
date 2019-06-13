@@ -2,16 +2,16 @@
 using Model;
 using Controller;
 using System.Windows.Forms;
-using LocadoraVeiculos.Util;
+using Util;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormManutencaoVendedor : FormPadrao
     {
         private Enumeradores.EnumEstadoForm aEstadoForm;
         private VendedorEntidade aVendedorEntidade;
 
-        public FormManutencaoVendedor(Enumeradores.EnumEstadoForm pEstadoForm, VendedorEntidade pVendedorEntidade)
+        public FormManutencaoVendedor(Enumeradores.EnumEstadoForm pEstadoForm, UsuarioEntidade pUsuarioEntidade)
         {
             InitializeComponent();
 
@@ -19,7 +19,7 @@ namespace LocadoraVeiculos.View
 
             if (aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
             {
-                aVendedorEntidade = pVendedorEntidade;
+                aVendedorEntidade = (VendedorEntidade)pUsuarioEntidade;
 
                 if (aVendedorEntidade.dtDataDemissao > DateTime.MinValue)
                 {

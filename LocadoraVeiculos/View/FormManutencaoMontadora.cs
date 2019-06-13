@@ -2,9 +2,9 @@
 using Model;
 using Controller;
 using System.Windows.Forms;
-using LocadoraVeiculos.Util;
+using Util;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormManutencaoMontadora : FormPadrao
     {
@@ -88,6 +88,16 @@ namespace LocadoraVeiculos.View
         }
 
         private void TxtQtdFabricas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilitarios.PermitirApenasNumeroKeyPress(e);
+        }
+
+        private void TxtLucroAnual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilitarios.PermitirApenasNumeroKeyPress(e);
+        }
+
+        private void TxtFaturamento_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
         }

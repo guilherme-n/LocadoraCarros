@@ -2,7 +2,7 @@ using System;
 using System.Data.Common;
 using System.Collections.Generic;
 using Model;
-using LocadoraVeiculos.DAO;
+using DAO;
 using System.Data.SqlClient;
 
 namespace Controller

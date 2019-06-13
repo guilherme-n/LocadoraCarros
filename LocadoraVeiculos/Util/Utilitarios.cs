@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace LocadoraVeiculos.Util
+namespace Util
 {
     static class Utilitarios
     {

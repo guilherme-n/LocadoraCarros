@@ -2,9 +2,9 @@
 using Model;
 using Controller;
 using System.Windows.Forms;
-using LocadoraVeiculos.Util;
+using Util;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormManutencaoPais : FormPadrao
     {

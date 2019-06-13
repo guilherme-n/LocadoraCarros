@@ -1,4 +1,4 @@
-﻿using LocadoraVeiculos.Util;
+﻿using Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Model;
 using Controller;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormGerenciamentoVeiculo
     {
@@ -23,8 +23,8 @@ namespace LocadoraVeiculos.View
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
-            FormManutencaoMontadora vFormManutencaoMontadora = new FormManutencaoMontadora(Enumeradores.EnumEstadoForm.CADASTRO, null);
-            vFormManutencaoMontadora.ShowDialog(this);
+            FormManutencaoVeiculo vFormManutencaoVeiculo = new FormManutencaoVeiculo(Enumeradores.EnumEstadoForm.CADASTRO, null);
+            vFormManutencaoVeiculo.ShowDialog(this);
             CarregarGrid();
         }
 
@@ -32,13 +32,13 @@ namespace LocadoraVeiculos.View
         {
             try
             {
-                MontadoraEntidade vMontadoraEntidade = new MontadoraEntidade();
-                vMontadoraEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
+                VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
+                vVeiculoEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vMontadoraEntidade = new MontadoraControlador().Consultar(vMontadoraEntidade).First();
+                vVeiculoEntidade = new VeiculoControlador().Consultar(vVeiculoEntidade, false).First();
 
-                FormManutencaoMontadora vFormManutencaoMontadora = new FormManutencaoMontadora(Enumeradores.EnumEstadoForm.ALTERACAO, vMontadoraEntidade);
-                vFormManutencaoMontadora.ShowDialog(this);
+                FormManutencaoVeiculo vFormManutencaoVeiculo = new FormManutencaoVeiculo(Enumeradores.EnumEstadoForm.ALTERACAO, vVeiculoEntidade);
+                vFormManutencaoVeiculo.ShowDialog(this);
                 CarregarGrid();
             }
             catch(Exception ex)
@@ -69,10 +69,10 @@ namespace LocadoraVeiculos.View
         {
             try
             {
-                MontadoraEntidade vMontadoraEntidade = new MontadoraEntidade();
-                vMontadoraEntidade.vNome = TxtNome.Text;
+                VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
+                vVeiculoEntidade.vModelo = TxtModelo.Text;
 
-                GridDados.DataSource = new MontadoraControlador().Consultar(vMontadoraEntidade);
+                GridDados.DataSource = new VeiculoControlador().Consultar(vVeiculoEntidade, false);
             }
             catch (Exception ex)
             {

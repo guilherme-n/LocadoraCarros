@@ -1,4 +1,4 @@
-﻿namespace LocadoraVeiculos.View
+﻿namespace View
 {
     partial class FormGerenciamentoPais : FormPadrao
     {

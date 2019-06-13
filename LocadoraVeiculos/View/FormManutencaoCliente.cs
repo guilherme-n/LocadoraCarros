@@ -2,9 +2,9 @@
 using Model;
 using Controller;
 using System.Windows.Forms;
-using LocadoraVeiculos.Util;
+using Util;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormManutencaoCliente : FormPadrao
     {
@@ -121,15 +121,15 @@ namespace LocadoraVeiculos.View
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
         }
+        private void TxtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilitarios.PermitirApenasNumeroKeyPress(e);
+        }
         
         private void BtnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void TxtNumero_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Utilitarios.PermitirApenasNumeroKeyPress(e);
-        }
     }
 }

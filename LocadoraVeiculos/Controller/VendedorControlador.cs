@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Model;
-using LocadoraVeiculos.DAO;
-using Controller;
+using DAO;
 
 namespace Controller
 {
-    public class VendedorControlador
+    public class VendedorControlador : UsuarioControlador
     {
         private VendedorDAO aTbVendedorDAO;
 
@@ -44,19 +43,19 @@ namespace Controller
         }
 
 
-        public List<VendedorEntidade> Consultar(VendedorEntidade pVendedorEntidade)
+        public override List<UsuarioEntidade> Consultar(UsuarioEntidade pUsuarioEntidade)
         {
-            List<VendedorEntidade> vListVendedorEntidade = new List<VendedorEntidade>();
+            List<UsuarioEntidade> vListUsuarioEntidade = new List<UsuarioEntidade>();
 
             UsuarioEntidade v = new VendedorEntidade();
 
-            VendedorEntidade vVendedorEntidade = (VendedorEntidade)pVendedorEntidade;
+            VendedorEntidade vVendedorEntidade = (VendedorEntidade)pUsuarioEntidade;
             try
             {
                 SqlDataReader vSqlDataReader = this.aTbVendedorDAO.Consultar(vVendedorEntidade);
                 while (vSqlDataReader.Read())
                 {
-                    vListVendedorEntidade.Add((VendedorEntidade)this.fnMontarObjeto(vSqlDataReader));
+                    vListUsuarioEntidade.Add((VendedorEntidade)this.fnMontarObjeto(vSqlDataReader));
                 }
             }
             catch (Exception ex)
@@ -68,7 +67,7 @@ namespace Controller
                 Conexao.CloseConnection();
             }
 
-            return vListVendedorEntidade;
+            return vListUsuarioEntidade;
         }
 
         public VendedorEntidade Incluir(VendedorEntidade pVendedorEntidade)

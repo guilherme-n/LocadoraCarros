@@ -1,11 +1,11 @@
-﻿using LocadoraVeiculos.Util;
+﻿using Util;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 using Model;
 using Controller;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormGerenciamentoVendedor
     {
@@ -26,12 +26,12 @@ namespace LocadoraVeiculos.View
         {
             try
             {
-                VendedorEntidade vVendedorEntidade = new VendedorEntidade();
-                vVendedorEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
+                UsuarioEntidade vUsuarioEntidade = new VendedorEntidade();
+                vUsuarioEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vVendedorEntidade = new VendedorControlador().Consultar(vVendedorEntidade).First();
+                vUsuarioEntidade = new VendedorControlador().Consultar(vUsuarioEntidade).First();
 
-                FormManutencaoVendedor vFormManutencaoVendedor = new FormManutencaoVendedor(Enumeradores.EnumEstadoForm.ALTERACAO, vVendedorEntidade);
+                FormManutencaoVendedor vFormManutencaoVendedor = new FormManutencaoVendedor(Enumeradores.EnumEstadoForm.ALTERACAO, vUsuarioEntidade);
                 vFormManutencaoVendedor.ShowDialog(this);
 
                 CarregarGrid();

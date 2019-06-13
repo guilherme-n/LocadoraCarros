@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Model;
 using System.Data.SqlClient;
 
-namespace LocadoraVeiculos.DAO
+namespace DAO
 {
     public class MontadoraPaisDAO
     {

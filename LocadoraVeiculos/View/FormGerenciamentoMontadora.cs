@@ -1,4 +1,4 @@
-﻿using LocadoraVeiculos.Util;
+﻿using Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Model;
 using Controller;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormGerenciamentoMontadora 
     {

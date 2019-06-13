@@ -1,4 +1,4 @@
-﻿namespace LocadoraVeiculos.View
+﻿namespace View
 {
     partial class FormPrincipal
     {
@@ -36,9 +36,9 @@
             this.paisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.veículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,8 +65,9 @@
             // locacaoDeVeiculoToolStripMenuItem
             // 
             this.locacaoDeVeiculoToolStripMenuItem.Name = "locacaoDeVeiculoToolStripMenuItem";
-            this.locacaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.locacaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locacaoDeVeiculoToolStripMenuItem.Text = "&Locação de veículo";
+            this.locacaoDeVeiculoToolStripMenuItem.Click += new System.EventHandler(this.locacaoDeVeiculoToolStripMenuItem_Click);
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -108,6 +109,13 @@
             this.clienteToolStripMenuItem.Text = "&Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
+            // veículoToolStripMenuItem
+            // 
+            this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
+            this.veículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veículoToolStripMenuItem.Text = "&Veículo";
+            this.veículoToolStripMenuItem.Click += new System.EventHandler(this.veículoToolStripMenuItem_Click);
+            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -122,13 +130,6 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
-            // 
-            // veículoToolStripMenuItem
-            // 
-            this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
-            this.veículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.veículoToolStripMenuItem.Text = "&Veículo";
-            this.veículoToolStripMenuItem.Click += new System.EventHandler(this.veículoToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 

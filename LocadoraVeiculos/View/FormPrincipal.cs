@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace LocadoraVeiculos.View
+namespace View
 {
     public partial class FormPrincipal : Form
     {
@@ -49,6 +49,12 @@ namespace LocadoraVeiculos.View
         {
             FormGerenciamentoVeiculo vFormGerenciamentoVeiculo = new FormGerenciamentoVeiculo();
             vFormGerenciamentoVeiculo.ShowDialog(this);
+        }
+
+        private void locacaoDeVeiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLocacaoVeiculos vFormLocacaoVeiculos = new FormLocacaoVeiculos();
+            vFormLocacaoVeiculos.ShowDialog();
         }
     }
 }

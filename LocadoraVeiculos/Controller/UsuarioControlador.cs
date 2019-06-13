@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
-namespace LocadoraVeiculos.Controller
+namespace Controller
 {
-    public class UsuarioControlador
+    public abstract class UsuarioControlador
     {
-        //public abstract List<UsuarioEntidade> Consultar(UsuarioEntidade pUsuarioEntidade);
+        public abstract List<UsuarioEntidade> Consultar(UsuarioEntidade pUsuarioEntidade);
     }
 }
