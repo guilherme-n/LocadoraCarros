@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.GroupDados = new System.Windows.Forms.GroupBox();
+            this.TxtQuilometragem = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtPlaca = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TxtValorDiaria = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.TxtCor = new System.Windows.Forms.TextBox();
             this.CboMontadora = new System.Windows.Forms.ComboBox();
             this.TxtAnoFabricacao = new System.Windows.Forms.TextBox();
-            this.TxtQtd = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,11 +50,15 @@
             // 
             // GroupDados
             // 
+            this.GroupDados.Controls.Add(this.TxtQuilometragem);
+            this.GroupDados.Controls.Add(this.label7);
+            this.GroupDados.Controls.Add(this.TxtPlaca);
+            this.GroupDados.Controls.Add(this.label6);
+            this.GroupDados.Controls.Add(this.TxtValorDiaria);
+            this.GroupDados.Controls.Add(this.label5);
             this.GroupDados.Controls.Add(this.TxtCor);
             this.GroupDados.Controls.Add(this.CboMontadora);
             this.GroupDados.Controls.Add(this.TxtAnoFabricacao);
-            this.GroupDados.Controls.Add(this.TxtQtd);
-            this.GroupDados.Controls.Add(this.label6);
             this.GroupDados.Controls.Add(this.label4);
             this.GroupDados.Controls.Add(this.label3);
             this.GroupDados.Controls.Add(this.label2);
@@ -61,6 +69,59 @@
             this.GroupDados.Size = new System.Drawing.Size(579, 129);
             this.GroupDados.TabIndex = 0;
             this.GroupDados.TabStop = false;
+            // 
+            // TxtQuilometragem
+            // 
+            this.TxtQuilometragem.Location = new System.Drawing.Point(330, 96);
+            this.TxtQuilometragem.MaxLength = 10;
+            this.TxtQuilometragem.Name = "TxtQuilometragem";
+            this.TxtQuilometragem.Size = new System.Drawing.Size(114, 20);
+            this.TxtQuilometragem.TabIndex = 13;
+            this.TxtQuilometragem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQuilometragem_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(327, 80);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Quilometragem";
+            // 
+            // TxtPlaca
+            // 
+            this.TxtPlaca.Location = new System.Drawing.Point(253, 96);
+            this.TxtPlaca.Mask = ">LLL-0000";
+            this.TxtPlaca.Name = "TxtPlaca";
+            this.TxtPlaca.Size = new System.Drawing.Size(71, 20);
+            this.TxtPlaca.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(250, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Placa";
+            // 
+            // TxtValorDiaria
+            // 
+            this.TxtValorDiaria.Location = new System.Drawing.Point(130, 96);
+            this.TxtValorDiaria.MaxLength = 8;
+            this.TxtValorDiaria.Name = "TxtValorDiaria";
+            this.TxtValorDiaria.Size = new System.Drawing.Size(114, 20);
+            this.TxtValorDiaria.TabIndex = 9;
+            this.TxtValorDiaria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorDiaria_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(127, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Valor diária";
             // 
             // TxtCor
             // 
@@ -87,24 +148,6 @@
             this.TxtAnoFabricacao.Size = new System.Drawing.Size(105, 20);
             this.TxtAnoFabricacao.TabIndex = 5;
             this.TxtAnoFabricacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAnoFabricacao_KeyPress);
-            // 
-            // TxtQtd
-            // 
-            this.TxtQtd.Location = new System.Drawing.Point(130, 96);
-            this.TxtQtd.MaxLength = 7;
-            this.TxtQtd.Name = "TxtQtd";
-            this.TxtQtd.Size = new System.Drawing.Size(105, 20);
-            this.TxtQtd.TabIndex = 9;
-            this.TxtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtdFabricas_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(130, 80);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Quantidade";
             // 
             // label4
             // 
@@ -152,7 +195,7 @@
             // 
             // BtnCadastrar
             // 
-            this.BtnCadastrar.Location = new System.Drawing.Point(435, 183);
+            this.BtnCadastrar.Location = new System.Drawing.Point(435, 166);
             this.BtnCadastrar.Name = "BtnCadastrar";
             this.BtnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.BtnCadastrar.TabIndex = 1;
@@ -162,7 +205,7 @@
             // 
             // BtnFechar
             // 
-            this.BtnFechar.Location = new System.Drawing.Point(516, 183);
+            this.BtnFechar.Location = new System.Drawing.Point(516, 166);
             this.BtnFechar.Name = "BtnFechar";
             this.BtnFechar.Size = new System.Drawing.Size(75, 23);
             this.BtnFechar.TabIndex = 2;
@@ -174,13 +217,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 218);
+            this.ClientSize = new System.Drawing.Size(602, 195);
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.BtnFechar);
             this.Controls.Add(this.GroupDados);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormManutencaoVeiculo";
-            this.Text = "Cadastro de montadora";
+            this.Text = "Cadastro de veículo";
             this.Load += new System.EventHandler(this.FormManutencaoVeiculo_Load);
             this.GroupDados.ResumeLayout(false);
             this.GroupDados.PerformLayout();
@@ -198,10 +241,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TxtQtd;
         private System.Windows.Forms.TextBox TxtAnoFabricacao;
         private System.Windows.Forms.ComboBox CboMontadora;
         private System.Windows.Forms.TextBox TxtCor;
+        private System.Windows.Forms.TextBox TxtValorDiaria;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MaskedTextBox TxtPlaca;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TxtQuilometragem;
+        private System.Windows.Forms.Label label7;
     }
 }

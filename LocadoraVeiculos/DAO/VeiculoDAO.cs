@@ -16,10 +16,17 @@ namespace DAO
             {
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pVeiculoEntidade.iId));
             }
+            else
+            {
+                if(pVeiculoEntidade.vMontadoraEntidade.iId > 0)
+                {
+                    vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdMontadora", DbType.Int32, pVeiculoEntidade.vMontadoraEntidade.iId));
+                }
+            }
 
             if(pApenasDisponiveis)
             {
-                vListOfSqlParameter.Add(Conexao.CriarParametro("@pbApenasDisponiveis", DbType.Boolean, true));
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@pbAlugado", DbType.Boolean, false));
             }
 
             return Conexao.ExecuteReader("SPSel_TbVeiculo", vListOfSqlParameter);
@@ -61,7 +68,13 @@ namespace DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvCor", DbType.String, pVeiculoEntidade.vCor));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piQtd", DbType.Int32, pVeiculoEntidade.iQtd));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdValorLocacao", DbType.Decimal, pVeiculoEntidade.dValorLocacao));
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@pvPlaca", DbType.String, pVeiculoEntidade.vPlaca));
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@pbAlugado", DbType.Boolean, pVeiculoEntidade.bAlugado));
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piQuilometragem", DbType.Int64, pVeiculoEntidade.iQuilometragem));
 
             return vListOfSqlParameter;
         }

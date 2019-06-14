@@ -1,15 +1,8 @@
 ﻿using Util;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-using Controller;
 
 namespace View
 {
@@ -35,7 +28,7 @@ namespace View
                 VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
                 vVeiculoEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vVeiculoEntidade = new VeiculoControlador().Consultar(vVeiculoEntidade, false).First();
+                vVeiculoEntidade = VeiculoEntidade.Consultar(vVeiculoEntidade, false).First();
 
                 FormManutencaoVeiculo vFormManutencaoVeiculo = new FormManutencaoVeiculo(Enumeradores.EnumEstadoForm.ALTERACAO, vVeiculoEntidade);
                 vFormManutencaoVeiculo.ShowDialog(this);
@@ -72,7 +65,7 @@ namespace View
                 VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
                 vVeiculoEntidade.vModelo = TxtModelo.Text;
 
-                GridDados.DataSource = new VeiculoControlador().Consultar(vVeiculoEntidade, false);
+                GridDados.DataSource = VeiculoEntidade.Consultar(vVeiculoEntidade, false);
             }
             catch (Exception ex)
             {

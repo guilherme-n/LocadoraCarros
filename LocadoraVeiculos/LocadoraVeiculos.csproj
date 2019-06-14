@@ -47,13 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ClienteControlador.cs" />
-    <Compile Include="Controller\MontadoraControlador.cs" />
-    <Compile Include="Controller\MontadoraPaisControlador.cs" />
-    <Compile Include="Controller\PaisControlador.cs" />
-    <Compile Include="Controller\UsuarioControlador.cs" />
-    <Compile Include="Controller\VeiculoControlador.cs" />
-    <Compile Include="Controller\VendedorControlador.cs" />
+    <Compile Include="DAO\AluguelDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
@@ -62,6 +56,7 @@
     <Compile Include="DAO\PaisDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="DAO\VendedorDAO.cs" />
+    <Compile Include="Model\AluguelEntidade.cs" />
     <Compile Include="Model\ClienteEntidade.cs" />
     <Compile Include="Model\EnderecoEntidade.cs" />
     <Compile Include="Model\MontadoraEntidade.cs" />

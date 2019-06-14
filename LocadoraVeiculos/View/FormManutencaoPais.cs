@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Controller;
 using System.Windows.Forms;
 using Util;
 
@@ -50,17 +49,12 @@ namespace View
                 vPaisEntidade.dPibEmDolar =  Convert.ToDecimal(TxtPib.Text.Replace(" ",""));
                 vPaisEntidade.iQtdHabitantes = Convert.ToInt64(TxtQtdHabitantes.Text.Replace(" ",""));
 
-                PaisControlador vTbPaisControlador = new PaisControlador();
+                if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
+                {
+                    vPaisEntidade.iId = aPaisEntidade.iId;                    
+                }
 
-                if(aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
-                {
-                    vTbPaisControlador.Incluir(vPaisEntidade);
-                }
-                else
-                {
-                    vPaisEntidade.iId = aPaisEntidade.iId;
-                    vTbPaisControlador.Alterar(vPaisEntidade);
-                }
+                vPaisEntidade.Salvar();
 
                 MessageBox.Show("Pais salvo com sucesso"
                                , "Informacao"

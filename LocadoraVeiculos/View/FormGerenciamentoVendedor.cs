@@ -1,9 +1,7 @@
 ﻿using Util;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using Model;
-using Controller;
 
 namespace View
 {
@@ -26,12 +24,12 @@ namespace View
         {
             try
             {
-                UsuarioEntidade vUsuarioEntidade = new VendedorEntidade();
-                vUsuarioEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
+                VendedorEntidade vVendedorEntidade = new VendedorEntidade();
+                vVendedorEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vUsuarioEntidade = new VendedorControlador().Consultar(vUsuarioEntidade).First();
+                vVendedorEntidade.Carregar();
 
-                FormManutencaoVendedor vFormManutencaoVendedor = new FormManutencaoVendedor(Enumeradores.EnumEstadoForm.ALTERACAO, vUsuarioEntidade);
+                FormManutencaoVendedor vFormManutencaoVendedor = new FormManutencaoVendedor(Enumeradores.EnumEstadoForm.ALTERACAO, vVendedorEntidade);
                 vFormManutencaoVendedor.ShowDialog(this);
 
                 CarregarGrid();
@@ -67,7 +65,7 @@ namespace View
                 VendedorEntidade vVendedorEntidade = new VendedorEntidade();
                 vVendedorEntidade.vNome = TxtNome.Text;
 
-                GridDados.DataSource = new VendedorControlador().Consultar(vVendedorEntidade);
+                GridDados.DataSource = VendedorEntidade.Consultar(vVendedorEntidade);
             }
             catch (Exception ex)
             {

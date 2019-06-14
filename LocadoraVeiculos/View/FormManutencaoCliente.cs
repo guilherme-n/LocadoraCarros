@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Controller;
 using System.Windows.Forms;
 using Util;
 
@@ -87,17 +86,12 @@ namespace View
 
                 vClienteEntidade.vEnderecoEntidade = vEnderecoEntidade;
 
-                ClienteControlador vTbClienteControlador = new ClienteControlador();
-
-                if(aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
-                {
-                    vTbClienteControlador.Incluir(vClienteEntidade);
-                }
-                else
+                if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vClienteEntidade.iId = aClienteEntidade.iId;
-                    vTbClienteControlador.Alterar(vClienteEntidade);
                 }
+
+                vClienteEntidade.Salvar();
 
                 MessageBox.Show("Cliente salvo com sucesso"
                                , "Informacao"

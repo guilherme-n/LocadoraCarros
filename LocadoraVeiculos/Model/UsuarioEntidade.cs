@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Model
 {
@@ -9,5 +10,10 @@ namespace Model
         public string vLogin { get; set; }
         public string vSenha { get; set; }
         public bool bAtivo { get; set; }
+
+        //public static List<UsuarioEntidade> Consultar(UsuarioEntidade pUsuarioEntidade)
+        //{
+        //    return pUsuarioEntidade.consultar
+        //}
     }
 }

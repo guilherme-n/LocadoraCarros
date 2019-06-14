@@ -10,5 +10,12 @@
             ,EXCLUSAO
         }
 
+        public enum EnumFormaPagamento
+        {
+            DINHEIRO
+            ,CARTAO_CREDITO
+            ,CHEQUE
+        }
+
     }
 }

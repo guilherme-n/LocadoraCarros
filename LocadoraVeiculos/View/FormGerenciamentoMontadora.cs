@@ -1,15 +1,8 @@
 ﻿using Util;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-using Controller;
 
 namespace View
 {
@@ -35,7 +28,7 @@ namespace View
                 MontadoraEntidade vMontadoraEntidade = new MontadoraEntidade();
                 vMontadoraEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vMontadoraEntidade = new MontadoraControlador().Consultar(vMontadoraEntidade).First();
+                vMontadoraEntidade = MontadoraEntidade.Consultar(vMontadoraEntidade).First();
 
                 FormManutencaoMontadora vFormManutencaoMontadora = new FormManutencaoMontadora(Enumeradores.EnumEstadoForm.ALTERACAO, vMontadoraEntidade);
                 vFormManutencaoMontadora.ShowDialog(this);
@@ -72,7 +65,7 @@ namespace View
                 MontadoraEntidade vMontadoraEntidade = new MontadoraEntidade();
                 vMontadoraEntidade.vNome = TxtNome.Text;
 
-                GridDados.DataSource = new MontadoraControlador().Consultar(vMontadoraEntidade);
+                GridDados.DataSource = MontadoraEntidade.Consultar(vMontadoraEntidade);
             }
             catch (Exception ex)
             {

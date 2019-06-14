@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Controller;
 using Model;
 
 namespace View
@@ -31,14 +24,12 @@ namespace View
 
                 if(!validarCamposObrigatorios()) { return; }
 
-                VendedorEntidade vVendedorEntidade = new VendedorEntidade();
-                vVendedorEntidade.iId = int.Parse(CboLogin.SelectedValue.ToString());
-                vVendedorEntidade.vSenha = TxtSenha.Text;
+                string vLogin = CboLogin.Text;
+                string vSenha = TxtSenha.Text;
 
-                VendedorControlador vVendedorControlador = new VendedorControlador();
-                List<UsuarioEntidade> vListOfUsuarioEntidade = vVendedorControlador.Consultar(vVendedorEntidade);
+                UsuarioEntidade vUsuarioEntidade = VendedorEntidade.ValidarLogin(vLogin, vSenha);
 
-                if(vListOfUsuarioEntidade.Count == 0)
+                if(vUsuarioEntidade == null)
                 {
                     MessageBox.Show("Login/senha errados"
                                     , "Aviso"
@@ -64,12 +55,11 @@ namespace View
             try
             {
                 //carrega o combo de vendedores
-                UsuarioControlador vUsuarioControlador = new VendedorControlador();
                 CboLogin.ValueMember = "iId";
                 CboLogin.DisplayMember = "vLogin";
 
                 //POLIMORFISMO, em tempo de execucao, o sistema sabe que o metodo consultar é da classe vendedor
-                CboLogin.DataSource = vUsuarioControlador.Consultar(new VendedorEntidade());
+                CboLogin.DataSource = VendedorEntidade.Consultar();
 
                 //coloca o foco para o campo da senha
                 this.ActiveControl = TxtSenha;

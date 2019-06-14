@@ -44,9 +44,9 @@ namespace DAO
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
 
-            if (pEnderecoEntidade.iId > 0)
+            if (pEnderecoEntidade.iIdTbCliente > 0)
             {
-                vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pEnderecoEntidade.iId));
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbCliente", DbType.Int32, pEnderecoEntidade.iIdTbCliente));
             }
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvLogradouro", DbType.String, pEnderecoEntidade.vLogradouro));

@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Controller;
 using System.Windows.Forms;
 using Util;
 
@@ -52,20 +51,15 @@ namespace View
                 vMontadoraEntidade.dFaturamentoEmDolar = Convert.ToDecimal(TxtFaturamento.Text);
                 vMontadoraEntidade.iQtdFabricas = Convert.ToInt32(TxtQtdFabricas.Text);
 
-                MontadoraControlador vTbMontadoraControlador = new MontadoraControlador();
-
-                if(aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
-                {
-                    vTbMontadoraControlador.Incluir(vMontadoraEntidade);
-                }
-                else
+                if (aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vMontadoraEntidade.iId = aMontadoraEntidade.iId;
-                    vTbMontadoraControlador.Alterar(vMontadoraEntidade);
                 }
 
+                vMontadoraEntidade.Salvar();
+
                 MessageBox.Show("Montadora salva com sucesso"
-                               , "Informacao"
+                               , "Informação"
                                , MessageBoxButtons.OK
                                , MessageBoxIcon.Information);
 
@@ -82,11 +76,6 @@ namespace View
             }
         }
 
-        private void BtnFechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void TxtQtdFabricas_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
@@ -100,6 +89,10 @@ namespace View
         private void TxtFaturamento_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
+        }
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

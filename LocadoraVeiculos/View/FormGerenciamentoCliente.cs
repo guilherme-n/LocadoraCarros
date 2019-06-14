@@ -1,15 +1,8 @@
 ﻿using Util;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-using Controller;
 
 namespace View
 {
@@ -35,7 +28,7 @@ namespace View
                 ClienteEntidade vClienteEntidade = new ClienteEntidade();
                 vClienteEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vClienteEntidade = new ClienteControlador().Consultar(vClienteEntidade).First();
+                vClienteEntidade = ClienteEntidade.Consultar(vClienteEntidade).First();
 
                 FormManutencaoCliente vFormManutencaoCliente = new FormManutencaoCliente(Enumeradores.EnumEstadoForm.ALTERACAO, vClienteEntidade);
                 vFormManutencaoCliente.ShowDialog(this);
@@ -73,7 +66,7 @@ namespace View
                 ClienteEntidade vClienteEntidade = new ClienteEntidade();
                 vClienteEntidade.vNome = TxtNome.Text;
 
-                GridDados.DataSource = new ClienteControlador().Consultar(vClienteEntidade);
+                GridDados.DataSource = ClienteEntidade.Consultar(vClienteEntidade);
             }
             catch (Exception ex)
             {

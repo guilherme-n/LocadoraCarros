@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Controller;
 using System.Windows.Forms;
 using Util;
 
@@ -37,12 +36,14 @@ namespace View
                 TxtCpf.Text = aVendedorEntidade.vCpf;
                 TxtLogin.Text = aVendedorEntidade.vLogin;
 
-                TxtSenha.Text = aVendedorEntidade.vSenha;
                 DtDataAdmissao.Value = aVendedorEntidade.dtDataAdmissao;
                 TxtPercentualComissao.Text = aVendedorEntidade.iPercentualComissao.ToString();
                 DtDataDemissao.Value = aVendedorEntidade.dtDataDemissao;
                 RbtAtivo.Checked = aVendedorEntidade.bAtivo;
                 RbtInativo.Checked = !aVendedorEntidade.bAtivo;
+
+                TxtSenha.Enabled = false;
+                TxtConfirmacaoSenha.Enabled = false;
 
                 BtnCadastrar.Text = "&Alterar";
             }
@@ -57,23 +58,21 @@ namespace View
                 vVendedorEntidade.vNome = TxtNome.Text;
                 vVendedorEntidade.vCpf = TxtCpf.Text;
                 vVendedorEntidade.vLogin = TxtLogin.Text;
-                vVendedorEntidade.vSenha = TxtSenha.Text;
                 vVendedorEntidade.dtDataAdmissao = DtDataAdmissao.Value;
                 vVendedorEntidade.iPercentualComissao = int.Parse(TxtPercentualComissao.Text);
                 vVendedorEntidade.dtDataDemissao = DtDataDemissao.Value;
                 vVendedorEntidade.bAtivo = RbtAtivo.Checked;
 
-                VendedorControlador vTbVendedorControlador = new VendedorControlador();
-
                 if (aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
                 {
-                    vTbVendedorControlador.Incluir(vVendedorEntidade);
+                    vVendedorEntidade.vSenha = TxtSenha.Text;
                 }
-                else
+                else if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vVendedorEntidade.iId = aVendedorEntidade.iId;
-                    vTbVendedorControlador.Alterar(vVendedorEntidade);
                 }
+
+                vVendedorEntidade.Salvar();
 
                 MessageBox.Show("Vendedor salvo com sucesso"
                                , "Informacao"

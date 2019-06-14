@@ -39,8 +39,7 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.vModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vNomeMontadora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iQtdDisponivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bDisponivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupFiltros.SuspendLayout();
             this.GroupDados.SuspendLayout();
@@ -54,7 +53,7 @@
             this.GroupFiltros.Controls.Add(this.TxtModelo);
             this.GroupFiltros.Location = new System.Drawing.Point(12, 12);
             this.GroupFiltros.Name = "GroupFiltros";
-            this.GroupFiltros.Size = new System.Drawing.Size(530, 69);
+            this.GroupFiltros.Size = new System.Drawing.Size(412, 69);
             this.GroupFiltros.TabIndex = 0;
             this.GroupFiltros.TabStop = false;
             this.GroupFiltros.Text = "Filtros";
@@ -91,7 +90,7 @@
             this.GroupDados.Controls.Add(this.GridDados);
             this.GroupDados.Location = new System.Drawing.Point(12, 87);
             this.GroupDados.Name = "GroupDados";
-            this.GroupDados.Size = new System.Drawing.Size(530, 433);
+            this.GroupDados.Size = new System.Drawing.Size(412, 433);
             this.GroupDados.TabIndex = 1;
             this.GroupDados.TabStop = false;
             // 
@@ -105,8 +104,7 @@
             this.GridDados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vModelo,
             this.vNomeMontadora,
-            this.iQtd,
-            this.iQtdDisponivel,
+            this.bDisponivel,
             this.iId});
             this.GridDados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridDados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -114,12 +112,12 @@
             this.GridDados.Name = "GridDados";
             this.GridDados.RowHeadersVisible = false;
             this.GridDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridDados.Size = new System.Drawing.Size(524, 414);
+            this.GridDados.Size = new System.Drawing.Size(406, 414);
             this.GridDados.TabIndex = 0;
             // 
             // BtnFechar
             // 
-            this.BtnFechar.Location = new System.Drawing.Point(467, 526);
+            this.BtnFechar.Location = new System.Drawing.Point(349, 526);
             this.BtnFechar.Name = "BtnFechar";
             this.BtnFechar.Size = new System.Drawing.Size(75, 23);
             this.BtnFechar.TabIndex = 4;
@@ -129,7 +127,7 @@
             // 
             // BtnCadastrar
             // 
-            this.BtnCadastrar.Location = new System.Drawing.Point(386, 526);
+            this.BtnCadastrar.Location = new System.Drawing.Point(268, 526);
             this.BtnCadastrar.Name = "BtnCadastrar";
             this.BtnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.BtnCadastrar.TabIndex = 3;
@@ -139,7 +137,7 @@
             // 
             // BtnAlterar
             // 
-            this.BtnAlterar.Location = new System.Drawing.Point(305, 526);
+            this.BtnAlterar.Location = new System.Drawing.Point(187, 526);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
             this.BtnAlterar.TabIndex = 2;
@@ -161,18 +159,11 @@
             this.vNomeMontadora.Name = "vNomeMontadora";
             this.vNomeMontadora.Width = 120;
             // 
-            // iQtd
+            // bDisponivel
             // 
-            this.iQtd.DataPropertyName = "iQtd";
-            this.iQtd.HeaderText = "Quantidade";
-            this.iQtd.Name = "iQtd";
-            // 
-            // iQtdDisponivel
-            // 
-            this.iQtdDisponivel.DataPropertyName = "iQtdDisponivel";
-            this.iQtdDisponivel.HeaderText = "Qtd. disponível";
-            this.iQtdDisponivel.Name = "iQtdDisponivel";
-            this.iQtdDisponivel.Width = 120;
+            this.bDisponivel.DataPropertyName = "bDisponivel";
+            this.bDisponivel.HeaderText = "Disponível";
+            this.bDisponivel.Name = "bDisponivel";
             // 
             // iId
             // 
@@ -185,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 561);
+            this.ClientSize = new System.Drawing.Size(437, 561);
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.BtnFechar);
@@ -214,8 +205,7 @@
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.DataGridViewTextBoxColumn vModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn vNomeMontadora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iQtd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iQtdDisponivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bDisponivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn iId;
     }
 }

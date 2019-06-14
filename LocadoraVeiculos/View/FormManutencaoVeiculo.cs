@@ -1,6 +1,5 @@
 ﻿using System;
 using Model;
-using Controller;
 using System.Windows.Forms;
 using Util;
 
@@ -29,10 +28,9 @@ namespace View
             try
             {
                 //carrega o combo de montadoras
-                MontadoraControlador vMontadoraControlador = new MontadoraControlador();
                 CboMontadora.ValueMember = "iId";
                 CboMontadora.DisplayMember = "vNome";
-                CboMontadora.DataSource = vMontadoraControlador.Consultar(new MontadoraEntidade());
+                CboMontadora.DataSource = MontadoraEntidade.Consultar(new MontadoraEntidade());
 
                 if (aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
@@ -40,7 +38,9 @@ namespace View
                     CboMontadora.SelectedValue = aVeiculoEntidade.vMontadoraEntidade.iId;
                     TxtAnoFabricacao.Text = aVeiculoEntidade.iAnoFabricacao.ToString();
                     TxtCor.Text = aVeiculoEntidade.vCor;
-                    TxtQtd.Text = aVeiculoEntidade.iQtd.ToString();
+                    TxtValorDiaria.Text = aVeiculoEntidade.dValorLocacao.ToString();
+                    TxtPlaca.Text = aVeiculoEntidade.vPlaca;
+                    TxtQuilometragem.Text = aVeiculoEntidade.iQuilometragem.ToString();
 
                     BtnCadastrar.Text = "&Alterar";
                 }
@@ -64,23 +64,20 @@ namespace View
                 vVeiculoEntidade.vMontadoraEntidade.iId = Int32.Parse(CboMontadora.SelectedValue.ToString());
                 vVeiculoEntidade.iAnoFabricacao = Int32.Parse(TxtAnoFabricacao.Text);
                 vVeiculoEntidade.vCor = TxtCor.Text;
-                vVeiculoEntidade.iQtd = Int32.Parse(TxtQtd.Text);
-                vVeiculoEntidade.iQtdDisponivel = vVeiculoEntidade.iQtd;
+                vVeiculoEntidade.dValorLocacao = Decimal.Parse(TxtValorDiaria.Text);
+                vVeiculoEntidade.vPlaca = TxtPlaca.Text;
+                vVeiculoEntidade.iQuilometragem = Int64.Parse(TxtQuilometragem.Text);
 
-                VeiculoControlador vTbVeiculoControlador = new VeiculoControlador();
-
-                if(aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
-                {
-                    vTbVeiculoControlador.Incluir(vVeiculoEntidade);
-                }
-                else
+                if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vVeiculoEntidade.iId = aVeiculoEntidade.iId;
-                    vTbVeiculoControlador.Alterar(vVeiculoEntidade);
+                    vVeiculoEntidade.bAlugado = aVeiculoEntidade.bAlugado;
                 }
 
-                MessageBox.Show("Veiculo salva com sucesso"
-                               , "Informacao"
+                vVeiculoEntidade.Salvar();
+
+                MessageBox.Show("Veiculo salvo com sucesso"
+                               , "Informação"
                                , MessageBoxButtons.OK
                                , MessageBoxIcon.Information);
 
@@ -102,12 +99,17 @@ namespace View
             this.Close();
         }
 
-        private void TxtQtdFabricas_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtAnoFabricacao_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
         }
 
-        private void TxtAnoFabricacao_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtValorDiaria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilitarios.PermitirApenasNumeroKeyPress(e);
+        }
+
+        private void TxtQuilometragem_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilitarios.PermitirApenasNumeroKeyPress(e);
         }

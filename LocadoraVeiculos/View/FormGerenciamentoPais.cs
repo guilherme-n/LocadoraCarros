@@ -1,15 +1,8 @@
 ﻿using Util;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-using Controller;
 
 namespace View
 {
@@ -35,7 +28,7 @@ namespace View
                 PaisEntidade vPaisEntidade = new PaisEntidade();
                 vPaisEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
 
-                vPaisEntidade = new PaisControlador().Consultar(vPaisEntidade).First();
+                vPaisEntidade = PaisEntidade.Consultar(vPaisEntidade).First();
 
                 FormManutencaoPais vFormManutencaoPais = new FormManutencaoPais(Enumeradores.EnumEstadoForm.ALTERACAO, vPaisEntidade);
                 vFormManutencaoPais.ShowDialog(this);
@@ -73,7 +66,7 @@ namespace View
                 PaisEntidade vPaisEntidade = new PaisEntidade();
                 vPaisEntidade.vNome = TxtNome.Text;
 
-                GridDados.DataSource = new PaisControlador().Consultar(vPaisEntidade);
+                GridDados.DataSource = PaisEntidade.Consultar(vPaisEntidade);
             }
             catch (Exception ex)
             {
@@ -82,7 +75,6 @@ namespace View
                                 , MessageBoxButtons.OK
                                 , MessageBoxIcon.Error);
             }
-
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)
