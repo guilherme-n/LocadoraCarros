@@ -31,7 +31,7 @@ namespace View
 
                 if(vUsuarioEntidade == null)
                 {
-                    MessageBox.Show("Login/senha errados"
+                    MessageBox.Show("Senha errada"
                                     , "Aviso"
                                     , MessageBoxButtons.OK
                                     , MessageBoxIcon.Warning);

@@ -17,5 +17,12 @@
             ,CHEQUE
         }
 
+        public enum EnumEstadoVeiculo
+        {
+            DISPONIVEL
+            ,RESERVADO
+            ,ALUGADO
+        }
+
     }
 }

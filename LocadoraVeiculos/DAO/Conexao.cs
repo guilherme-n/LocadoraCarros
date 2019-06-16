@@ -8,7 +8,7 @@ namespace DAO
     static class Conexao
     {
         //static readonly String aStringConexao = "Data Source = DESKTOP-3S93RIL\\SQLEXPRESS; Initial Catalog = dbLocadoraVeiculos; Integrated Security = True; Connect Timeout = 30; User Instance = True; Trusted_Connection = True";
-        static readonly String aStringConexao = "Server= DESENV_003; Database= dbLocadoraVeiculos; Integrated Security=True;";
+        static readonly String aStringConexao = "Server= GUILHERME735E; Database= dbLocadoraVeiculos; Integrated Security=True;";
         static SqlConnection aSqlConnection = new SqlConnection(aStringConexao);
 
 

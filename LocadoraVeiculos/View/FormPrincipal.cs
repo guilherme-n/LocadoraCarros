@@ -56,5 +56,11 @@ namespace View
             FormLocacaoVeiculos vFormLocacaoVeiculos = new FormLocacaoVeiculos();
             vFormLocacaoVeiculos.ShowDialog();
         }
+
+        private void TrocarDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLogin vFormLogin = new FormLogin();
+            vFormLogin.ShowDialog(this);
+        }
     }
 }

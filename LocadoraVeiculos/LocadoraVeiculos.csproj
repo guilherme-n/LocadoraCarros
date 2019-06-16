@@ -60,7 +60,6 @@
     <Compile Include="Model\ClienteEntidade.cs" />
     <Compile Include="Model\EnderecoEntidade.cs" />
     <Compile Include="Model\MontadoraEntidade.cs" />
-    <Compile Include="Model\MontadoraPaisEntidade.cs" />
     <Compile Include="Model\PaisEntidade.cs" />
     <Compile Include="Model\UsuarioEntidade.cs" />
     <Compile Include="Model\VeiculoEntidade.cs" />
