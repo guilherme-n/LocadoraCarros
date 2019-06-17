@@ -7,14 +7,8 @@ namespace Model
 {
     public class ClienteEntidade
     {
-        private static ClienteDAO aClienteDAO;
-        private static EnderecoDAO aEnderecoDAO;
-
-        public ClienteEntidade()
-        {
-            aClienteDAO = new ClienteDAO();
-            aEnderecoDAO = new EnderecoDAO();
-        }
+        private static ClienteDAO aClienteDAO = new ClienteDAO();
+        private static EnderecoDAO aEnderecoDAO = new EnderecoDAO();
 
         public int iId { get; set; }
         public string vNome { get; set; }

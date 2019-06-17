@@ -34,14 +34,15 @@
             this.TxtNome = new System.Windows.Forms.TextBox();
             this.GroupDados = new System.Windows.Forms.GroupBox();
             this.GridDados = new System.Windows.Forms.DataGridView();
+            this.BtnFechar = new System.Windows.Forms.Button();
+            this.BtnCadastrar = new System.Windows.Forms.Button();
             this.vNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vCidadeFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDataFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iQtdFabricas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alterar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.iId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnFechar = new System.Windows.Forms.Button();
-            this.BtnCadastrar = new System.Windows.Forms.Button();
-            this.BtnAlterar = new System.Windows.Forms.Button();
             this.GroupFiltros.SuspendLayout();
             this.GroupDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridDados)).BeginInit();
@@ -107,6 +108,8 @@
             this.vCidadeFundacao,
             this.dtDataFundacao,
             this.iQtdFabricas,
+            this.Alterar,
+            this.Excluir,
             this.iId});
             this.GridDados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridDados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -116,41 +119,7 @@
             this.GridDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridDados.Size = new System.Drawing.Size(754, 414);
             this.GridDados.TabIndex = 0;
-            // 
-            // vNome
-            // 
-            this.vNome.DataPropertyName = "vNome";
-            this.vNome.HeaderText = "Nome";
-            this.vNome.Name = "vNome";
-            this.vNome.Width = 200;
-            // 
-            // vCidadeFundacao
-            // 
-            this.vCidadeFundacao.DataPropertyName = "vCidadeFundacao";
-            this.vCidadeFundacao.HeaderText = "Cidade";
-            this.vCidadeFundacao.Name = "vCidadeFundacao";
-            this.vCidadeFundacao.Width = 285;
-            // 
-            // dtDataFundacao
-            // 
-            this.dtDataFundacao.DataPropertyName = "dtDataFundacao";
-            this.dtDataFundacao.HeaderText = "Data fundacao";
-            this.dtDataFundacao.Name = "dtDataFundacao";
-            this.dtDataFundacao.Width = 120;
-            // 
-            // iQtdFabricas
-            // 
-            this.iQtdFabricas.DataPropertyName = "iQtdFabricas";
-            this.iQtdFabricas.HeaderText = "Qtd de fabricas";
-            this.iQtdFabricas.Name = "iQtdFabricas";
-            this.iQtdFabricas.Width = 130;
-            // 
-            // iId
-            // 
-            this.iId.DataPropertyName = "iId";
-            this.iId.HeaderText = "iId";
-            this.iId.Name = "iId";
-            this.iId.Visible = false;
+            this.GridDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDados_CellContentClick);
             // 
             // BtnFechar
             // 
@@ -172,22 +141,60 @@
             this.BtnCadastrar.UseVisualStyleBackColor = true;
             this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
-            // BtnAlterar
+            // vNome
             // 
-            this.BtnAlterar.Location = new System.Drawing.Point(535, 526);
-            this.BtnAlterar.Name = "BtnAlterar";
-            this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.BtnAlterar.TabIndex = 2;
-            this.BtnAlterar.Text = "&Alterar";
-            this.BtnAlterar.UseVisualStyleBackColor = true;
-            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
+            this.vNome.DataPropertyName = "vNome";
+            this.vNome.HeaderText = "Nome";
+            this.vNome.Name = "vNome";
+            this.vNome.Width = 200;
+            // 
+            // vCidadeFundacao
+            // 
+            this.vCidadeFundacao.DataPropertyName = "vCidadeFundacao";
+            this.vCidadeFundacao.HeaderText = "Cidade";
+            this.vCidadeFundacao.Name = "vCidadeFundacao";
+            this.vCidadeFundacao.Width = 185;
+            // 
+            // dtDataFundacao
+            // 
+            this.dtDataFundacao.DataPropertyName = "dtDataFundacao";
+            this.dtDataFundacao.HeaderText = "Data fundação";
+            this.dtDataFundacao.Name = "dtDataFundacao";
+            this.dtDataFundacao.Width = 120;
+            // 
+            // iQtdFabricas
+            // 
+            this.iQtdFabricas.DataPropertyName = "iQtdFabricas";
+            this.iQtdFabricas.HeaderText = "Qtd. de fábricas";
+            this.iQtdFabricas.Name = "iQtdFabricas";
+            this.iQtdFabricas.Width = 130;
+            // 
+            // Alterar
+            // 
+            this.Alterar.HeaderText = "Alterar";
+            this.Alterar.Image = global::LocadoraVeiculos.Properties.Resources.update;
+            this.Alterar.Name = "Alterar";
+            this.Alterar.Width = 50;
+            // 
+            // Excluir
+            // 
+            this.Excluir.HeaderText = "Excluir";
+            this.Excluir.Image = global::LocadoraVeiculos.Properties.Resources.delete;
+            this.Excluir.Name = "Excluir";
+            this.Excluir.Width = 50;
+            // 
+            // iId
+            // 
+            this.iId.DataPropertyName = "iId";
+            this.iId.HeaderText = "iId";
+            this.iId.Name = "iId";
+            this.iId.Visible = false;
             // 
             // FormGerenciamentoMontadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.BtnFechar);
             this.Controls.Add(this.GroupDados);
@@ -212,11 +219,12 @@
         private System.Windows.Forms.DataGridView GridDados;
         private System.Windows.Forms.Button BtnFechar;
         private System.Windows.Forms.Button BtnCadastrar;
-        private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.DataGridViewTextBoxColumn vNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn vCidadeFundacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDataFundacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn iQtdFabricas;
+        private System.Windows.Forms.DataGridViewImageColumn Alterar;
+        private System.Windows.Forms.DataGridViewImageColumn Excluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn iId;
     }
 }

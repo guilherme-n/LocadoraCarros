@@ -7,7 +7,7 @@ namespace Model
 {
     public class PaisEntidade
     {
-        private static PaisDAO aTbPaisDAO;
+        private static PaisDAO aTbPaisDAO = new PaisDAO();
 
         public int iId { get; set; }
         public string vNome { get; set; }
@@ -15,11 +15,6 @@ namespace Model
         public long iQtdHabitantes { get; set; }
         public int iAnoFundacao { get; set; }
         public decimal dPibEmDolar { get; set; }
-
-        public PaisEntidade()
-        {
-            aTbPaisDAO = new PaisDAO();
-        }
 
         private static PaisEntidade MontarObjeto(SqlDataReader pSqlDataReader)
         {

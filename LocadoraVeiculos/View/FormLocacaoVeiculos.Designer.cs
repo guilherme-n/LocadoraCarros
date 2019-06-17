@@ -41,18 +41,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CboFormaPagamento = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TxtVendedorLogado = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.BtnCadastrar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DtInicioAluguel = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnFechar
             // 
-            this.BtnFechar.Location = new System.Drawing.Point(464, 171);
+            this.BtnFechar.Location = new System.Drawing.Point(464, 172);
             this.BtnFechar.Name = "BtnFechar";
             this.BtnFechar.Size = new System.Drawing.Size(75, 23);
-            this.BtnFechar.TabIndex = 2;
+            this.BtnFechar.TabIndex = 3;
             this.BtnFechar.Text = "&Fechar";
             this.BtnFechar.UseVisualStyleBackColor = true;
             this.BtnFechar.Click += new System.EventHandler(this.BtnFechar_Click);
@@ -105,7 +110,7 @@
             this.CboCliente.FormattingEnabled = true;
             this.CboCliente.Location = new System.Drawing.Point(257, 32);
             this.CboCliente.Name = "CboCliente";
-            this.CboCliente.Size = new System.Drawing.Size(258, 21);
+            this.CboCliente.Size = new System.Drawing.Size(264, 21);
             this.CboCliente.TabIndex = 5;
             // 
             // label1
@@ -138,7 +143,7 @@
             // 
             // TxtDiaria
             // 
-            this.TxtDiaria.Location = new System.Drawing.Point(9, 29);
+            this.TxtDiaria.Location = new System.Drawing.Point(9, 32);
             this.TxtDiaria.MaxLength = 3;
             this.TxtDiaria.Name = "TxtDiaria";
             this.TxtDiaria.Size = new System.Drawing.Size(41, 20);
@@ -149,7 +154,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(149, 12);
+            this.label4.Location = new System.Drawing.Point(149, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 4;
@@ -163,13 +168,17 @@
             "Dinheiro",
             "Cartão de crédito",
             "Cheque"});
-            this.CboFormaPagamento.Location = new System.Drawing.Point(152, 28);
+            this.CboFormaPagamento.Location = new System.Drawing.Point(152, 31);
             this.CboFormaPagamento.Name = "CboFormaPagamento";
-            this.CboFormaPagamento.Size = new System.Drawing.Size(153, 21);
+            this.CboFormaPagamento.Size = new System.Drawing.Size(121, 21);
             this.CboFormaPagamento.TabIndex = 5;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.DtInicioAluguel);
+            this.groupBox2.Controls.Add(this.TxtVendedorLogado);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.TxtValorTotal);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.CboFormaPagamento);
@@ -178,13 +187,32 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 88);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(527, 65);
+            this.groupBox2.Size = new System.Drawing.Size(527, 69);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // TxtVendedorLogado
+            // 
+            this.TxtVendedorLogado.Location = new System.Drawing.Point(389, 32);
+            this.TxtVendedorLogado.MaxLength = 10;
+            this.TxtVendedorLogado.Name = "TxtVendedorLogado";
+            this.TxtVendedorLogado.ReadOnly = true;
+            this.TxtVendedorLogado.Size = new System.Drawing.Size(132, 20);
+            this.TxtVendedorLogado.TabIndex = 9;
+            this.TxtVendedorLogado.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(386, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Vendedor logado";
+            // 
             // TxtValorTotal
             // 
-            this.TxtValorTotal.Location = new System.Drawing.Point(56, 29);
+            this.TxtValorTotal.Location = new System.Drawing.Point(56, 32);
             this.TxtValorTotal.MaxLength = 10;
             this.TxtValorTotal.Name = "TxtValorTotal";
             this.TxtValorTotal.ReadOnly = true;
@@ -195,17 +223,47 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 12);
+            this.label5.Location = new System.Drawing.Point(53, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 2;
             this.label5.Text = "Valor total";
             // 
+            // BtnCadastrar
+            // 
+            this.BtnCadastrar.Location = new System.Drawing.Point(383, 172);
+            this.BtnCadastrar.Name = "BtnCadastrar";
+            this.BtnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.BtnCadastrar.TabIndex = 2;
+            this.BtnCadastrar.Text = "&Cadastrar";
+            this.BtnCadastrar.UseVisualStyleBackColor = true;
+            this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(276, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Início do aluguel";
+            // 
+            // DtInicioAluguel
+            // 
+            this.DtInicioAluguel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtInicioAluguel.Location = new System.Drawing.Point(279, 32);
+            this.DtInicioAluguel.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.DtInicioAluguel.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
+            this.DtInicioAluguel.Name = "DtInicioAluguel";
+            this.DtInicioAluguel.Size = new System.Drawing.Size(104, 20);
+            this.DtInicioAluguel.TabIndex = 7;
+            // 
             // FormLocacaoVeiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 203);
+            this.ClientSize = new System.Drawing.Size(550, 205);
+            this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnFechar);
             this.Controls.Add(this.groupBox1);
@@ -237,5 +295,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox CboMarca;
+        private System.Windows.Forms.Button BtnCadastrar;
+        private System.Windows.Forms.TextBox TxtVendedorLogado;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker DtInicioAluguel;
     }
 }

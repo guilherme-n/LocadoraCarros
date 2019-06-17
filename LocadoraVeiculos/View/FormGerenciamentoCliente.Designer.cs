@@ -28,41 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnCadastrar = new System.Windows.Forms.Button();
             this.BtnFechar = new System.Windows.Forms.Button();
             this.GroupDados = new System.Windows.Forms.GroupBox();
             this.GridDados = new System.Windows.Forms.DataGridView();
+            this.vNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alterar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Excluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.iId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupFiltros = new System.Windows.Forms.GroupBox();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.TxtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.vNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridDados)).BeginInit();
             this.GroupFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnAlterar
-            // 
-            this.BtnAlterar.Location = new System.Drawing.Point(1070, 964);
-            this.BtnAlterar.Margin = new System.Windows.Forms.Padding(6);
-            this.BtnAlterar.Name = "BtnAlterar";
-            this.BtnAlterar.Size = new System.Drawing.Size(150, 44);
-            this.BtnAlterar.TabIndex = 2;
-            this.BtnAlterar.Text = "&Alterar";
-            this.BtnAlterar.UseVisualStyleBackColor = true;
-            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
-            // 
             // BtnCadastrar
             // 
-            this.BtnCadastrar.Location = new System.Drawing.Point(1232, 964);
-            this.BtnCadastrar.Margin = new System.Windows.Forms.Padding(6);
+            this.BtnCadastrar.Location = new System.Drawing.Point(616, 501);
             this.BtnCadastrar.Name = "BtnCadastrar";
-            this.BtnCadastrar.Size = new System.Drawing.Size(150, 44);
+            this.BtnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.BtnCadastrar.TabIndex = 3;
             this.BtnCadastrar.Text = "&Cadastrar";
             this.BtnCadastrar.UseVisualStyleBackColor = true;
@@ -70,10 +59,9 @@
             // 
             // BtnFechar
             // 
-            this.BtnFechar.Location = new System.Drawing.Point(1394, 964);
-            this.BtnFechar.Margin = new System.Windows.Forms.Padding(6);
+            this.BtnFechar.Location = new System.Drawing.Point(697, 501);
             this.BtnFechar.Name = "BtnFechar";
-            this.BtnFechar.Size = new System.Drawing.Size(150, 44);
+            this.BtnFechar.Size = new System.Drawing.Size(75, 23);
             this.BtnFechar.TabIndex = 4;
             this.BtnFechar.Text = "&Fechar";
             this.BtnFechar.UseVisualStyleBackColor = true;
@@ -82,11 +70,9 @@
             // GroupDados
             // 
             this.GroupDados.Controls.Add(this.GridDados);
-            this.GroupDados.Location = new System.Drawing.Point(24, 167);
-            this.GroupDados.Margin = new System.Windows.Forms.Padding(6);
+            this.GroupDados.Location = new System.Drawing.Point(12, 87);
             this.GroupDados.Name = "GroupDados";
-            this.GroupDados.Padding = new System.Windows.Forms.Padding(6);
-            this.GroupDados.Size = new System.Drawing.Size(1520, 785);
+            this.GroupDados.Size = new System.Drawing.Size(760, 408);
             this.GroupDados.TabIndex = 1;
             this.GroupDados.TabStop = false;
             // 
@@ -101,60 +87,18 @@
             this.vNome,
             this.vCpf,
             this.vCelular,
+            this.Alterar,
+            this.Excluir,
             this.iId});
             this.GridDados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridDados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.GridDados.Location = new System.Drawing.Point(6, 30);
-            this.GridDados.Margin = new System.Windows.Forms.Padding(6);
+            this.GridDados.Location = new System.Drawing.Point(3, 16);
             this.GridDados.Name = "GridDados";
             this.GridDados.RowHeadersVisible = false;
             this.GridDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridDados.Size = new System.Drawing.Size(1508, 749);
+            this.GridDados.Size = new System.Drawing.Size(754, 389);
             this.GridDados.TabIndex = 0;
-            // 
-            // GroupFiltros
-            // 
-            this.GroupFiltros.Controls.Add(this.BtnConsultar);
-            this.GroupFiltros.Controls.Add(this.TxtNome);
-            this.GroupFiltros.Controls.Add(this.label1);
-            this.GroupFiltros.Location = new System.Drawing.Point(24, 23);
-            this.GroupFiltros.Margin = new System.Windows.Forms.Padding(6);
-            this.GroupFiltros.Name = "GroupFiltros";
-            this.GroupFiltros.Padding = new System.Windows.Forms.Padding(6);
-            this.GroupFiltros.Size = new System.Drawing.Size(1520, 133);
-            this.GroupFiltros.TabIndex = 0;
-            this.GroupFiltros.TabStop = false;
-            this.GroupFiltros.Text = "Filtros";
-            // 
-            // BtnConsultar
-            // 
-            this.BtnConsultar.Location = new System.Drawing.Point(478, 65);
-            this.BtnConsultar.Margin = new System.Windows.Forms.Padding(6);
-            this.BtnConsultar.Name = "BtnConsultar";
-            this.BtnConsultar.Size = new System.Drawing.Size(150, 44);
-            this.BtnConsultar.TabIndex = 2;
-            this.BtnConsultar.Text = "&Consultar";
-            this.BtnConsultar.UseVisualStyleBackColor = true;
-            this.BtnConsultar.Click += new System.EventHandler(this.BtnConsultar_Click);
-            // 
-            // TxtNome
-            // 
-            this.TxtNome.Location = new System.Drawing.Point(20, 69);
-            this.TxtNome.Margin = new System.Windows.Forms.Padding(6);
-            this.TxtNome.MaxLength = 50;
-            this.TxtNome.Name = "TxtNome";
-            this.TxtNome.Size = new System.Drawing.Size(442, 31);
-            this.TxtNome.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 38);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome";
+            this.GridDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDados_CellContentClick);
             // 
             // vNome
             // 
@@ -168,14 +112,32 @@
             this.vCpf.DataPropertyName = "vCpf";
             this.vCpf.HeaderText = "CPF";
             this.vCpf.Name = "vCpf";
-            this.vCpf.Width = 200;
+            this.vCpf.Width = 150;
             // 
             // vCelular
             // 
             this.vCelular.DataPropertyName = "vCelular";
             this.vCelular.HeaderText = "Celular";
             this.vCelular.Name = "vCelular";
-            this.vCelular.Width = 200;
+            this.vCelular.Width = 150;
+            // 
+            // Alterar
+            // 
+            this.Alterar.HeaderText = "Alterar";
+            this.Alterar.Image = global::LocadoraVeiculos.Properties.Resources.update;
+            this.Alterar.Name = "Alterar";
+            this.Alterar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Alterar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Alterar.Width = 50;
+            // 
+            // Excluir
+            // 
+            this.Excluir.HeaderText = "Excluir";
+            this.Excluir.Image = global::LocadoraVeiculos.Properties.Resources.delete;
+            this.Excluir.Name = "Excluir";
+            this.Excluir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Excluir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Excluir.Width = 50;
             // 
             // iId
             // 
@@ -184,17 +146,55 @@
             this.iId.Name = "iId";
             this.iId.Visible = false;
             // 
+            // GroupFiltros
+            // 
+            this.GroupFiltros.Controls.Add(this.BtnConsultar);
+            this.GroupFiltros.Controls.Add(this.TxtNome);
+            this.GroupFiltros.Controls.Add(this.label1);
+            this.GroupFiltros.Location = new System.Drawing.Point(12, 12);
+            this.GroupFiltros.Name = "GroupFiltros";
+            this.GroupFiltros.Size = new System.Drawing.Size(760, 69);
+            this.GroupFiltros.TabIndex = 0;
+            this.GroupFiltros.TabStop = false;
+            this.GroupFiltros.Text = "Filtros";
+            // 
+            // BtnConsultar
+            // 
+            this.BtnConsultar.Location = new System.Drawing.Point(239, 34);
+            this.BtnConsultar.Name = "BtnConsultar";
+            this.BtnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.BtnConsultar.TabIndex = 2;
+            this.BtnConsultar.Text = "&Consultar";
+            this.BtnConsultar.UseVisualStyleBackColor = true;
+            this.BtnConsultar.Click += new System.EventHandler(this.BtnConsultar_Click);
+            // 
+            // TxtNome
+            // 
+            this.TxtNome.Location = new System.Drawing.Point(10, 36);
+            this.TxtNome.MaxLength = 50;
+            this.TxtNome.Name = "TxtNome";
+            this.TxtNome.Size = new System.Drawing.Size(223, 20);
+            this.TxtNome.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nome";
+            // 
             // FormGerenciamentoCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1568, 1029);
-            this.Controls.Add(this.BtnAlterar);
+            this.ClientSize = new System.Drawing.Size(784, 535);
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.BtnFechar);
             this.Controls.Add(this.GroupDados);
             this.Controls.Add(this.GroupFiltros);
-            this.Margin = new System.Windows.Forms.Padding(12);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormGerenciamentoCliente";
             this.Text = "Gerenciamento de cliente";
             this.GroupDados.ResumeLayout(false);
@@ -215,10 +215,11 @@
         private System.Windows.Forms.DataGridView GridDados;
         private System.Windows.Forms.Button BtnFechar;
         private System.Windows.Forms.Button BtnCadastrar;
-        private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.DataGridViewTextBoxColumn vNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn vCpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn vCelular;
+        private System.Windows.Forms.DataGridViewImageColumn Alterar;
+        private System.Windows.Forms.DataGridViewImageColumn Excluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn iId;
     }
 }

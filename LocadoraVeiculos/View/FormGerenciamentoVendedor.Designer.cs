@@ -28,33 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnCadastrar = new System.Windows.Forms.Button();
             this.BtnFechar = new System.Windows.Forms.Button();
             this.GroupDados = new System.Windows.Forms.GroupBox();
             this.GridDados = new System.Windows.Forms.DataGridView();
+            this.vNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDataAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alterar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Excluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.iId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupFiltros = new System.Windows.Forms.GroupBox();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.TxtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.vNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDataAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridDados)).BeginInit();
             this.GroupFiltros.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BtnAlterar
-            // 
-            this.BtnAlterar.Location = new System.Drawing.Point(535, 526);
-            this.BtnAlterar.Name = "BtnAlterar";
-            this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.BtnAlterar.TabIndex = 2;
-            this.BtnAlterar.Text = "&Alterar";
-            this.BtnAlterar.UseVisualStyleBackColor = true;
-            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnCadastrar
             // 
@@ -96,6 +87,8 @@
             this.vNome,
             this.vCpf,
             this.dtDataAdmissao,
+            this.Alterar,
+            this.Excluir,
             this.iId});
             this.GridDados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridDados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -105,6 +98,51 @@
             this.GridDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridDados.Size = new System.Drawing.Size(754, 414);
             this.GridDados.TabIndex = 0;
+            this.GridDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDados_CellContentClick);
+            // 
+            // vNome
+            // 
+            this.vNome.DataPropertyName = "vNome";
+            this.vNome.HeaderText = "Nome";
+            this.vNome.Name = "vNome";
+            this.vNome.Width = 320;
+            // 
+            // vCpf
+            // 
+            this.vCpf.DataPropertyName = "vCpf";
+            this.vCpf.HeaderText = "CPF";
+            this.vCpf.Name = "vCpf";
+            this.vCpf.Width = 185;
+            // 
+            // dtDataAdmissao
+            // 
+            this.dtDataAdmissao.DataPropertyName = "dtDataAdmissao";
+            this.dtDataAdmissao.HeaderText = "Data de admissão";
+            this.dtDataAdmissao.Name = "dtDataAdmissao";
+            this.dtDataAdmissao.Width = 120;
+            // 
+            // Alterar
+            // 
+            this.Alterar.HeaderText = "Alterar";
+            this.Alterar.Image = global::LocadoraVeiculos.Properties.Resources.update;
+            this.Alterar.Name = "Alterar";
+            this.Alterar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Alterar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Alterar.Width = 50;
+            // 
+            // Excluir
+            // 
+            this.Excluir.HeaderText = "Excluir";
+            this.Excluir.Image = global::LocadoraVeiculos.Properties.Resources.delete;
+            this.Excluir.Name = "Excluir";
+            this.Excluir.Width = 50;
+            // 
+            // iId
+            // 
+            this.iId.DataPropertyName = "iId";
+            this.iId.HeaderText = "iId";
+            this.iId.Name = "iId";
+            this.iId.Visible = false;
             // 
             // GroupFiltros
             // 
@@ -145,40 +183,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // vNome
-            // 
-            this.vNome.DataPropertyName = "vNome";
-            this.vNome.HeaderText = "Nome";
-            this.vNome.Name = "vNome";
-            this.vNome.Width = 320;
-            // 
-            // vCpf
-            // 
-            this.vCpf.DataPropertyName = "vCpf";
-            this.vCpf.HeaderText = "CPF";
-            this.vCpf.Name = "vCpf";
-            this.vCpf.Width = 285;
-            // 
-            // dtDataAdmissao
-            // 
-            this.dtDataAdmissao.DataPropertyName = "dtDataAdmissao";
-            this.dtDataAdmissao.HeaderText = "Data de admissão";
-            this.dtDataAdmissao.Name = "dtDataAdmissao";
-            this.dtDataAdmissao.Width = 120;
-            // 
-            // iId
-            // 
-            this.iId.DataPropertyName = "iId";
-            this.iId.HeaderText = "iId";
-            this.iId.Name = "iId";
-            this.iId.Visible = false;
-            // 
             // FormGerenciamentoVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.BtnFechar);
             this.Controls.Add(this.GroupDados);
@@ -203,10 +212,11 @@
         private System.Windows.Forms.DataGridView GridDados;
         private System.Windows.Forms.Button BtnFechar;
         private System.Windows.Forms.Button BtnCadastrar;
-        private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.DataGridViewTextBoxColumn vNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn vCpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDataAdmissao;
+        private System.Windows.Forms.DataGridViewImageColumn Alterar;
+        private System.Windows.Forms.DataGridViewImageColumn Excluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn iId;
     }
 }

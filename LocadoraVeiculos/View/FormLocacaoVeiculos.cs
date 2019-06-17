@@ -26,6 +26,8 @@ namespace View
             CboCliente.ValueMember = "iId";
             CboCliente.DisplayMember = "vNomeECpf";
             CboCliente.DataSource = ClienteEntidade.Consultar(new ClienteEntidade());
+
+            TxtVendedorLogado.Text = RecursosGlobais.VendedorLogado.vNome;
         }
 
         private void CboMarca_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,7 +40,7 @@ namespace View
 
             CboVeiculo.ValueMember = "iId";
             CboVeiculo.DisplayMember = "vModeloEPlaca";
-            CboVeiculo.DataSource = VeiculoEntidade.Consultar(vVeiculoEntidade, true);
+            CboVeiculo.DataSource = VeiculoEntidade.Consultar(vVeiculoEntidade);
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -59,7 +61,7 @@ namespace View
 
                 VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
                 vVeiculoEntidade.iId = Int32.Parse(CboVeiculo.SelectedValue.ToString());
-                vVeiculoEntidade = VeiculoEntidade.Consultar(vVeiculoEntidade, false).First();
+                vVeiculoEntidade = VeiculoEntidade.Consultar(vVeiculoEntidade).First();
 
                 TxtValorTotal.Text = (Int32.Parse(TxtDiaria.Text) * vVeiculoEntidade.dValorLocacao).ToString();
             }
@@ -79,6 +81,43 @@ namespace View
         private void BtnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AluguelEntidade vAluguelEntidade = new AluguelEntidade();
+                vAluguelEntidade.vMontadoraEntidade.iId = Int32.Parse(CboMarca.SelectedValue.ToString());
+                vAluguelEntidade.vVeiculoEntidade.iId = Int32.Parse(CboVeiculo.SelectedValue.ToString());
+                vAluguelEntidade.vClienteEntidade.iId = Int32.Parse(CboCliente.SelectedValue.ToString());
+                vAluguelEntidade.iQtdDiarias = Int32.Parse(TxtDiaria.Text);
+                vAluguelEntidade.dValorTotal = Int32.Parse(TxtValorTotal.Text);
+                vAluguelEntidade.iIdTbFormaPagamento = CboFormaPagamento.SelectedIndex + 1;
+                vAluguelEntidade.vVendedorEntidade.iId = RecursosGlobais.VendedorLogado.iId;
+                vAluguelEntidade.dtDataInicioAluguel = DtInicioAluguel.Value;
+
+                vAluguelEntidade.Salvar();
+
+                VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
+                vVeiculoEntidade.iId = Int32.Parse(CboVeiculo.SelectedValue.ToString());
+                vVeiculoEntidade.Carregar();
+                vVeiculoEntidade.iEstadoVeiculo = Enumeradores.EnumEstadoVeiculo.ALUGADO;
+                vVeiculoEntidade.Salvar();
+
+                MessageBox.Show("Locação efetuada com sucesso."
+                                , "Informação"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Information);
+                this.Close();
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao " + ex.Message
+                               , "Erro"
+                               , MessageBoxButtons.OK
+                               , MessageBoxIcon.Error);
+            }
         }
     }
 }

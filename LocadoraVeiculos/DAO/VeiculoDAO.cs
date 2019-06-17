@@ -3,12 +3,14 @@ using System.Data;
 using System.Collections.Generic;
 using Model;
 using System.Data.SqlClient;
+using Util;
 
 namespace DAO
 {
     public class VeiculoDAO
     {
-        public SqlDataReader Consultar(VeiculoEntidade pVeiculoEntidade, bool pApenasDisponiveis)
+
+        public SqlDataReader Consultar(VeiculoEntidade pVeiculoEntidade)
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
 
@@ -18,16 +20,20 @@ namespace DAO
             }
             else
             {
-                if(pVeiculoEntidade.vMontadoraEntidade.iId > 0)
+                if (pVeiculoEntidade.vMontadoraEntidade.iId > 0)
                 {
                     vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdMontadora", DbType.Int32, pVeiculoEntidade.vMontadoraEntidade.iId));
                 }
             }
 
-            if(pApenasDisponiveis)
-            {
-                vListOfSqlParameter.Add(Conexao.CriarParametro("@pbAlugado", DbType.Boolean, false));
-            }
+            return Conexao.ExecuteReader("SPSel_TbVeiculo", vListOfSqlParameter);
+        }
+
+        public SqlDataReader Consultar(Enumeradores.EnumEstadoVeiculo pEstadoVeiculo)
+        {
+            List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piEstadoVeiculo", DbType.Int32, pEstadoVeiculo));
 
             return Conexao.ExecuteReader("SPSel_TbVeiculo", vListOfSqlParameter);
         }
@@ -72,9 +78,9 @@ namespace DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@pvPlaca", DbType.String, pVeiculoEntidade.vPlaca));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pbAlugado", DbType.Boolean, pVeiculoEntidade.bAlugado));
-
             vListOfSqlParameter.Add(Conexao.CriarParametro("@piQuilometragem", DbType.Int64, pVeiculoEntidade.iQuilometragem));
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piEstadoVeiculo", DbType.Int32, pVeiculoEntidade.iEstadoVeiculo));            
 
             return vListOfSqlParameter;
         }

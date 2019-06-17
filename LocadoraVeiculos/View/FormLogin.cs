@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using Util;
 using Model;
 
 namespace View
@@ -27,9 +27,9 @@ namespace View
                 string vLogin = CboLogin.Text;
                 string vSenha = TxtSenha.Text;
 
-                UsuarioEntidade vUsuarioEntidade = VendedorEntidade.ValidarLogin(vLogin, vSenha);
+                VendedorEntidade vVendedorEntidade = VendedorEntidade.ValidarLogin(vLogin, vSenha);
 
-                if(vUsuarioEntidade == null)
+                if(vVendedorEntidade == null)
                 {
                     MessageBox.Show("Senha errada"
                                     , "Aviso"
@@ -38,6 +38,8 @@ namespace View
                     TxtSenha.Focus();
                 } else
                 {
+                    RecursosGlobais.VendedorLogado = vVendedorEntidade;
+
                     this.Close();
                 }
 

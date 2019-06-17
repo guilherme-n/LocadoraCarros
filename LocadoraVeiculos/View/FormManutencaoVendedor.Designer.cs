@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GroupDados = new System.Windows.Forms.GroupBox();
+            this.TxtSalario = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RbtInativo = new System.Windows.Forms.RadioButton();
             this.RbtAtivo = new System.Windows.Forms.RadioButton();
@@ -56,6 +58,8 @@
             // 
             // GroupDados
             // 
+            this.GroupDados.Controls.Add(this.TxtSalario);
+            this.GroupDados.Controls.Add(this.label8);
             this.GroupDados.Controls.Add(this.groupBox1);
             this.GroupDados.Controls.Add(this.DtDataDemissao);
             this.GroupDados.Controls.Add(this.LblDataDemissao);
@@ -79,6 +83,24 @@
             this.GroupDados.TabIndex = 0;
             this.GroupDados.TabStop = false;
             // 
+            // TxtSalario
+            // 
+            this.TxtSalario.Location = new System.Drawing.Point(455, 87);
+            this.TxtSalario.MaxLength = 6;
+            this.TxtSalario.Name = "TxtSalario";
+            this.TxtSalario.Size = new System.Drawing.Size(118, 20);
+            this.TxtSalario.TabIndex = 11;
+            this.TxtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSalario_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(452, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Salário";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.RbtInativo);
@@ -86,9 +108,9 @@
             this.groupBox1.Location = new System.Drawing.Point(410, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(163, 42);
-            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Vendedor";
+            this.groupBox1.Text = "Estado";
             this.groupBox1.Visible = false;
             // 
             // RbtInativo
@@ -122,7 +144,7 @@
             this.DtDataDemissao.Location = new System.Drawing.Point(272, 142);
             this.DtDataDemissao.Name = "DtDataDemissao";
             this.DtDataDemissao.Size = new System.Drawing.Size(132, 20);
-            this.DtDataDemissao.TabIndex = 15;
+            this.DtDataDemissao.TabIndex = 17;
             this.DtDataDemissao.Visible = false;
             // 
             // LblDataDemissao
@@ -131,7 +153,7 @@
             this.LblDataDemissao.Location = new System.Drawing.Point(269, 125);
             this.LblDataDemissao.Name = "LblDataDemissao";
             this.LblDataDemissao.Size = new System.Drawing.Size(92, 13);
-            this.LblDataDemissao.TabIndex = 14;
+            this.LblDataDemissao.TabIndex = 16;
             this.LblDataDemissao.Text = "Data de demissão";
             this.LblDataDemissao.Visible = false;
             // 
@@ -141,7 +163,7 @@
             this.TxtPercentualComissao.MaxLength = 2;
             this.TxtPercentualComissao.Name = "TxtPercentualComissao";
             this.TxtPercentualComissao.Size = new System.Drawing.Size(118, 20);
-            this.TxtPercentualComissao.TabIndex = 13;
+            this.TxtPercentualComissao.TabIndex = 15;
             this.TxtPercentualComissao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPercentualComissao_KeyPress);
             // 
             // label7
@@ -150,7 +172,7 @@
             this.label7.Location = new System.Drawing.Point(145, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 13);
-            this.label7.TabIndex = 12;
+            this.label7.TabIndex = 14;
             this.label7.Text = "Percentual comissão";
             // 
             // DtDataAdmissao
@@ -159,7 +181,7 @@
             this.DtDataAdmissao.Location = new System.Drawing.Point(10, 143);
             this.DtDataAdmissao.Name = "DtDataAdmissao";
             this.DtDataAdmissao.Size = new System.Drawing.Size(132, 20);
-            this.DtDataAdmissao.TabIndex = 11;
+            this.DtDataAdmissao.TabIndex = 13;
             // 
             // label6
             // 
@@ -167,7 +189,7 @@
             this.label6.Location = new System.Drawing.Point(7, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 13);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 12;
             this.label6.Text = "Data de admissão";
             // 
             // TxtCpf
@@ -189,17 +211,17 @@
             // 
             // TxtConfirmacaoSenha
             // 
-            this.TxtConfirmacaoSenha.Location = new System.Drawing.Point(410, 87);
+            this.TxtConfirmacaoSenha.Location = new System.Drawing.Point(330, 87);
             this.TxtConfirmacaoSenha.MaxLength = 30;
             this.TxtConfirmacaoSenha.Name = "TxtConfirmacaoSenha";
             this.TxtConfirmacaoSenha.PasswordChar = '*';
-            this.TxtConfirmacaoSenha.Size = new System.Drawing.Size(163, 20);
+            this.TxtConfirmacaoSenha.Size = new System.Drawing.Size(118, 20);
             this.TxtConfirmacaoSenha.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(407, 67);
+            this.label4.Location = new System.Drawing.Point(327, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 8;
@@ -207,17 +229,17 @@
             // 
             // TxtSenha
             // 
-            this.TxtSenha.Location = new System.Drawing.Point(241, 87);
+            this.TxtSenha.Location = new System.Drawing.Point(206, 87);
             this.TxtSenha.MaxLength = 30;
             this.TxtSenha.Name = "TxtSenha";
             this.TxtSenha.PasswordChar = '*';
-            this.TxtSenha.Size = new System.Drawing.Size(163, 20);
+            this.TxtSenha.Size = new System.Drawing.Size(118, 20);
             this.TxtSenha.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(238, 67);
+            this.label3.Location = new System.Drawing.Point(203, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
@@ -228,7 +250,7 @@
             this.TxtLogin.Location = new System.Drawing.Point(10, 87);
             this.TxtLogin.MaxLength = 50;
             this.TxtLogin.Name = "TxtLogin";
-            this.TxtLogin.Size = new System.Drawing.Size(223, 20);
+            this.TxtLogin.Size = new System.Drawing.Size(190, 20);
             this.TxtLogin.TabIndex = 5;
             // 
             // label2
@@ -287,6 +309,7 @@
             this.Controls.Add(this.GroupDados);
             this.Name = "FormManutencaoVendedor";
             this.Text = "Cadastro de vendedor";
+            this.Load += new System.EventHandler(this.FormManutencaoVendedor_Load);
             this.GroupDados.ResumeLayout(false);
             this.GroupDados.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -319,5 +342,7 @@
         private System.Windows.Forms.RadioButton RbtInativo;
         private System.Windows.Forms.RadioButton RbtAtivo;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox TxtSalario;
+        private System.Windows.Forms.Label label8;
     }
 }

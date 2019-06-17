@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Util;
 
 namespace View
 {
@@ -43,6 +44,11 @@ namespace View
         {
             FormLogin vFormLogin = new FormLogin();
             vFormLogin.ShowDialog(this);
+
+            if(RecursosGlobais.VendedorLogado != null)
+            {
+                this.Text = "Locadora de Veiculos - Vendedor " + RecursosGlobais.VendedorLogado.vNome;
+            }
         }
 
         private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,6 +67,29 @@ namespace View
         {
             FormLogin vFormLogin = new FormLogin();
             vFormLogin.ShowDialog(this);
+
+            if (RecursosGlobais.VendedorLogado != null)
+            {
+                this.Text = "Locadora de Veículos - Vendedor " + RecursosGlobais.VendedorLogado.vNome;
+            }
+        }
+
+        private void alteracaoDeSenhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAlteracaoSenha vFormAlteracaoSenha = new FormAlteracaoSenha();
+            vFormAlteracaoSenha.ShowDialog(this);
+        }
+
+        private void devolucaoDeVeiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDevolucaoVeiculos vFormDevolucaoVeiculos = new FormDevolucaoVeiculos();
+            vFormDevolucaoVeiculos.ShowDialog(this);
+        }
+
+        private void versaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSobre vFormSobre = new FormSobre();
+            vFormSobre.ShowDialog(this);
         }
     }
 }

@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using DAO;
+using Util;
 
 namespace Model
 {
     public class VeiculoEntidade
     {
-        private static VeiculoDAO aTbVeiculoDAO;
+        private static VeiculoDAO aTbVeiculoDAO = new VeiculoDAO();
 
         public VeiculoEntidade()
-        {
-            aTbVeiculoDAO = new VeiculoDAO();
+        {            
             vMontadoraEntidade = new MontadoraEntidade();
         }
 
@@ -24,6 +24,7 @@ namespace Model
         public string vPlaca { get; set; }
         public bool bAlugado { get; set; }
         public long iQuilometragem { get; set; }
+        public Enumeradores.EnumEstadoVeiculo iEstadoVeiculo { get; set; }
 
 
         public string vNomeMontadora
@@ -75,19 +76,19 @@ namespace Model
 
             vVeiculoEntidade.vPlaca = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vPlaca"], DBNull.Value)) ? pSqlDataReader["vPlaca"] : string.Empty);
 
-            vVeiculoEntidade.bAlugado = Convert.ToBoolean((!object.ReferenceEquals(pSqlDataReader["bAlugado"], DBNull.Value)) ? pSqlDataReader["bAlugado"] : false);
-
             vVeiculoEntidade.iQuilometragem = Convert.ToInt64((!object.ReferenceEquals(pSqlDataReader["iQuilometragem"], DBNull.Value)) ? pSqlDataReader["iQuilometragem"] : 0);
+
+            vVeiculoEntidade.iEstadoVeiculo = (Enumeradores.EnumEstadoVeiculo)Convert.ToInt64((!object.ReferenceEquals(pSqlDataReader["iEstadoVeiculo"], DBNull.Value)) ? pSqlDataReader["iEstadoVeiculo"] : 0);
 
             return vVeiculoEntidade;
         }
 
-        public static List<VeiculoEntidade> Consultar(VeiculoEntidade pVeiculoEntidade, bool pApenasDisponiveis)
+        public static List<VeiculoEntidade> Consultar(VeiculoEntidade pVeiculoEntidade)
         {
             List<VeiculoEntidade> vListVeiculoEntidade = new List<VeiculoEntidade>();
             try
             {
-                SqlDataReader vSqlDataReader = aTbVeiculoDAO.Consultar(pVeiculoEntidade, pApenasDisponiveis);
+                SqlDataReader vSqlDataReader = aTbVeiculoDAO.Consultar(pVeiculoEntidade);
                 while (vSqlDataReader.Read())
                 {
                     VeiculoEntidade vVeiculoEntidade = MontarObjeto(vSqlDataReader);
@@ -112,6 +113,71 @@ namespace Model
             }
 
             return vListVeiculoEntidade;
+        }
+
+        public static List<VeiculoEntidade> Consultar(Enumeradores.EnumEstadoVeiculo pEstadoVeiculo)
+        {
+            List<VeiculoEntidade> vListVeiculoEntidade = new List<VeiculoEntidade>();
+            try
+            {
+                SqlDataReader vSqlDataReader = aTbVeiculoDAO.Consultar(pEstadoVeiculo);
+                while (vSqlDataReader.Read())
+                {
+                    VeiculoEntidade vVeiculoEntidade = MontarObjeto(vSqlDataReader);
+                    vListVeiculoEntidade.Add(vVeiculoEntidade);
+                }
+
+                //Fecha a conexao para consultar as montadoras
+                Conexao.CloseConnection();
+
+                foreach (var vVeiculoEntidade in vListVeiculoEntidade)
+                {
+                    vVeiculoEntidade.vMontadoraEntidade = (MontadoraEntidade.Consultar(vVeiculoEntidade.vMontadoraEntidade))[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("consultar o(s) registro(s)");
+            }
+            finally
+            {
+                Conexao.CloseConnection();
+            }
+
+            return vListVeiculoEntidade;
+        }
+
+        public void Carregar()
+        {
+            try
+            {
+                if (iId == 0)
+                {
+                    throw new Exception("não informar o ID");
+                }
+
+                SqlDataReader vSqlDataReader = aTbVeiculoDAO.Consultar(this);
+                vSqlDataReader.Read();
+                VeiculoEntidade vVeiculoEntidade = MontarObjeto(vSqlDataReader);
+
+                this.vMontadoraEntidade = vVeiculoEntidade.vMontadoraEntidade;
+                this.vModelo = vVeiculoEntidade.vModelo;
+                this.iAnoFabricacao = vVeiculoEntidade.iAnoFabricacao;
+                this.vCor = vVeiculoEntidade.vCor;
+                this.dValorLocacao = vVeiculoEntidade.dValorLocacao;
+                this.vPlaca = vVeiculoEntidade.vPlaca;
+                this.iQuilometragem = vVeiculoEntidade.iQuilometragem;
+                this.iEstadoVeiculo = vVeiculoEntidade.iEstadoVeiculo;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("carregar o registro");
+            }
+            finally
+            {
+                Conexao.CloseConnection();
+            }
+
         }
 
         public void Salvar()

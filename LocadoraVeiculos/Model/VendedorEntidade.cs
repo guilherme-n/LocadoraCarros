@@ -8,18 +8,13 @@ namespace Model
 {
     public class VendedorEntidade : UsuarioEntidade
     {
-        private static VendedorDAO aTbVendedorDAO;
+        private static VendedorDAO aTbVendedorDAO = new VendedorDAO();
 
         public string vCpf { get; set; }
         public decimal dSalario { get; set; }
         public int iPercentualComissao { get; set; }
         public DateTime dtDataAdmissao { get; set; }
         public DateTime dtDataDemissao { get; set; }
-
-        public VendedorEntidade()
-        {
-            aTbVendedorDAO = new VendedorDAO();
-        }
 
         private static VendedorEntidade MontarObjeto(SqlDataReader pSqlDataReader)
         {
@@ -105,10 +100,14 @@ namespace Model
             {
                 throw new Exception("carregar o registro");
             }
+            finally
+            {
+                Conexao.CloseConnection();
+            }
 
         }
 
-        public static UsuarioEntidade ValidarLogin(string pLogin, string pSenha)
+        public static VendedorEntidade ValidarLogin(string pLogin, string pSenha)
         {
             try
             {

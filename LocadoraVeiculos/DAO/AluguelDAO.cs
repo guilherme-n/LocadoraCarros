@@ -21,6 +21,15 @@ namespace DAO
             return Conexao.ExecuteReader("SPSel_TbAluguel", vListOfSqlParameter);
         }
 
+        public DbDataReader Consultar(bool pEmAndamento)
+        {
+            List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@pEmAndamento", DbType.Int32, pEmAndamento));
+
+            return Conexao.ExecuteReader("SPSel_TbAluguel", vListOfSqlParameter);
+        }
+
         public void Excluir(AluguelEntidade pAluguelEntidade)
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
@@ -33,6 +42,15 @@ namespace DAO
         public void Alterar(AluguelEntidade pAluguelEntidade)
         {
             Conexao.ExecuteNonQuery("SPUpd_TbAluguel", this.fnGetAllSqlParameters(pAluguelEntidade));
+        }
+
+        public void DevolverVeiculo(AluguelEntidade pAluguelEntidade)
+        {
+            List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pAluguelEntidade.iId));
+
+            Conexao.ExecuteNonQuery("SPUpd_TbAluguelDevolverVeiculo", vListOfSqlParameter);
         }
 
         public int Incluir(AluguelEntidade pAluguelEntidade)
@@ -49,11 +67,11 @@ namespace DAO
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pAluguelEntidade.iId));
             }
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbMontadora", DbType.Int32, pAluguelEntidade.iIdTbMontadora));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbMontadora", DbType.Int32, pAluguelEntidade.vMontadoraEntidade.iId));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbVeiculo", DbType.Int32, pAluguelEntidade.iIdTbVeiculo));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbVeiculo", DbType.Int32, pAluguelEntidade.vVeiculoEntidade.iId));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbCliente", DbType.Int32, pAluguelEntidade.iIdTbCliente));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbCliente", DbType.Int32, pAluguelEntidade.vClienteEntidade.iId));
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@piQtdDiarias", DbType.Int32, pAluguelEntidade.iQtdDiarias));
 
@@ -61,9 +79,9 @@ namespace DAO
 
             vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbFormaPagamento", DbType.Int32, pAluguelEntidade.iIdTbFormaPagamento));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtDataInicioAluguel", DbType.DateTime, pAluguelEntidade.dtDataInicioAluguel));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piIdTbVendedor", DbType.Int32, pAluguelEntidade.vVendedorEntidade.iId));
 
-            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtDataOperacao", DbType.DateTime, pAluguelEntidade.dtDataOperacao));
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@pdtDataInicioAluguel", DbType.DateTime, pAluguelEntidade.dtDataInicioAluguel));
 
             return vListOfSqlParameter;
         }

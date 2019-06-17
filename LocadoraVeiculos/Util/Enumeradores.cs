@@ -12,16 +12,16 @@
 
         public enum EnumFormaPagamento
         {
-            DINHEIRO
-            ,CARTAO_CREDITO
-            ,CHEQUE
+            DINHEIRO = 1
+            ,CARTAO_CREDITO = 2
+            ,CHEQUE = 3
         }
 
         public enum EnumEstadoVeiculo
         {
-            DISPONIVEL
-            ,RESERVADO
-            ,ALUGADO
+            DISPONIVEL = 1
+            ,RESERVADO = 2
+            ,ALUGADO = 3
         }
 
     }

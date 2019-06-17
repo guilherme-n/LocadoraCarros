@@ -52,7 +52,6 @@
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
     <Compile Include="DAO\MontadoraDAO.cs" />
-    <Compile Include="DAO\MontadoraPaisDAO.cs" />
     <Compile Include="DAO\PaisDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="DAO\VendedorDAO.cs" />
@@ -65,7 +64,20 @@
     <Compile Include="Model\VeiculoEntidade.cs" />
     <Compile Include="Model\VendedorEntidade.cs" />
     <Compile Include="Util\Enumeradores.cs" />
+    <Compile Include="Util\RecursosGlobais.cs" />
     <Compile Include="Util\Utilitarios.cs" />
+    <Compile Include="View\FormAlteracaoSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAlteracaoSenha.Designer.cs">
+      <DependentUpon>FormAlteracaoSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormDevolucaoVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormDevolucaoVeiculos.Designer.cs">
+      <DependentUpon>FormDevolucaoVeiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormGerenciamentoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +164,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\FormSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormSobre.Designer.cs">
+      <DependentUpon>FormSobre.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormAlteracaoSenha.resx">
+      <DependentUpon>FormAlteracaoSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormDevolucaoVeiculos.resx">
+      <DependentUpon>FormDevolucaoVeiculos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormGerenciamentoCliente.resx">
       <DependentUpon>FormGerenciamentoCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +228,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\FormSobre.resx">
+      <DependentUpon>FormSobre.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -222,6 +249,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\carro2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devolver.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
