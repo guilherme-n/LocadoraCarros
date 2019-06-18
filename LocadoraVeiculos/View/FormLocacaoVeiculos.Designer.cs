@@ -41,13 +41,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CboFormaPagamento = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DtInicioAluguel = new System.Windows.Forms.DateTimePicker();
             this.TxtVendedorLogado = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.BtnCadastrar = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.DtInicioAluguel = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -156,9 +156,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(149, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(107, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Forma pagamento";
+            this.label4.Text = "Forma de pagamento";
             // 
             // CboFormaPagamento
             // 
@@ -191,6 +191,25 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(276, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Início do aluguel";
+            // 
+            // DtInicioAluguel
+            // 
+            this.DtInicioAluguel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtInicioAluguel.Location = new System.Drawing.Point(279, 32);
+            this.DtInicioAluguel.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.DtInicioAluguel.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
+            this.DtInicioAluguel.Name = "DtInicioAluguel";
+            this.DtInicioAluguel.Size = new System.Drawing.Size(104, 20);
+            this.DtInicioAluguel.TabIndex = 7;
+            // 
             // TxtVendedorLogado
             // 
             this.TxtVendedorLogado.Location = new System.Drawing.Point(389, 32);
@@ -206,9 +225,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(386, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Vendedor logado";
+            this.label6.Text = "Vendedor";
             // 
             // TxtValorTotal
             // 
@@ -238,25 +257,6 @@
             this.BtnCadastrar.Text = "&Cadastrar";
             this.BtnCadastrar.UseVisualStyleBackColor = true;
             this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(276, 13);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Início do aluguel";
-            // 
-            // DtInicioAluguel
-            // 
-            this.DtInicioAluguel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtInicioAluguel.Location = new System.Drawing.Point(279, 32);
-            this.DtInicioAluguel.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
-            this.DtInicioAluguel.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
-            this.DtInicioAluguel.Name = "DtInicioAluguel";
-            this.DtInicioAluguel.Size = new System.Drawing.Size(104, 20);
-            this.DtInicioAluguel.TabIndex = 7;
             // 
             // FormLocacaoVeiculos
             // 

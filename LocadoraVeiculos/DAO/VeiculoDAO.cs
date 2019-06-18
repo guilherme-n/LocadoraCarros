@@ -38,6 +38,15 @@ namespace DAO
             return Conexao.ExecuteReader("SPSel_TbVeiculo", vListOfSqlParameter);
         }
 
+        public SqlDataReader Consultar(bool pAlugados)
+        {
+            List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@pAlugados", DbType.Boolean, pAlugados));
+
+            return Conexao.ExecuteReader("SPSel_TbVeiculo", vListOfSqlParameter);
+        }
+
         public void Excluir(VeiculoEntidade pVeiculoEntidade)
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
@@ -55,6 +64,17 @@ namespace DAO
         public int Incluir(VeiculoEntidade pVeiculoEntidade)
         {
             return Convert.ToInt32(Conexao.ExecuteScalar("SPIns_TbVeiculo", this.fnGetAllSqlParameters(pVeiculoEntidade)));
+        }
+
+        public void AlterarEstado(VeiculoEntidade pVeiculoEntidade, Enumeradores.EnumEstadoVeiculo pEstadoVeiculo)
+        {
+            List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piId", DbType.Int32, pVeiculoEntidade.iId));
+
+            vListOfSqlParameter.Add(Conexao.CriarParametro("@piEstadoVeiculo", DbType.Int32, pEstadoVeiculo));
+
+            Convert.ToInt32(Conexao.ExecuteScalar("SPUpd_TbVeiculoAlterarEstado", vListOfSqlParameter));
         }
 
         public List<SqlParameter> fnGetAllSqlParameters(VeiculoEntidade pVeiculoEntidade)

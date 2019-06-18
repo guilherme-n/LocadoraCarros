@@ -58,6 +58,15 @@ namespace Model
             }
         }
 
+        public string vEstado
+        {
+            get
+            {
+                string vEstadoAux = iEstadoVeiculo.ToString();
+                return (vEstadoAux.Substring(0, 1).ToUpper() + vEstadoAux.Substring(1).ToLower());
+            }
+        }
+
         private static VeiculoEntidade MontarObjeto(SqlDataReader pSqlDataReader)
         {
             VeiculoEntidade vVeiculoEntidade = new VeiculoEntidade();
@@ -115,12 +124,49 @@ namespace Model
             return vListVeiculoEntidade;
         }
 
+        public static List<VeiculoEntidade> Consultar()
+        {
+            return Consultar(new VeiculoEntidade());
+        }
+
         public static List<VeiculoEntidade> Consultar(Enumeradores.EnumEstadoVeiculo pEstadoVeiculo)
         {
             List<VeiculoEntidade> vListVeiculoEntidade = new List<VeiculoEntidade>();
             try
             {
                 SqlDataReader vSqlDataReader = aTbVeiculoDAO.Consultar(pEstadoVeiculo);
+                while (vSqlDataReader.Read())
+                {
+                    VeiculoEntidade vVeiculoEntidade = MontarObjeto(vSqlDataReader);
+                    vListVeiculoEntidade.Add(vVeiculoEntidade);
+                }
+
+                //Fecha a conexao para consultar as montadoras
+                Conexao.CloseConnection();
+
+                foreach (var vVeiculoEntidade in vListVeiculoEntidade)
+                {
+                    vVeiculoEntidade.vMontadoraEntidade = (MontadoraEntidade.Consultar(vVeiculoEntidade.vMontadoraEntidade))[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("consultar o(s) registro(s)");
+            }
+            finally
+            {
+                Conexao.CloseConnection();
+            }
+
+            return vListVeiculoEntidade;
+        }
+
+        public static List<VeiculoEntidade> Consultar(bool pAlugados)
+        {
+            List<VeiculoEntidade> vListVeiculoEntidade = new List<VeiculoEntidade>();
+            try
+            {
+                SqlDataReader vSqlDataReader = aTbVeiculoDAO.Consultar(pAlugados);
                 while (vSqlDataReader.Read())
                 {
                     VeiculoEntidade vVeiculoEntidade = MontarObjeto(vSqlDataReader);
@@ -192,6 +238,22 @@ namespace Model
                 {
                     aTbVeiculoDAO.Alterar(this);
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("salvar o registro");
+            }
+            finally
+            {
+                Conexao.CloseConnection();
+            }
+        }
+
+        public void AlterarEstado(Enumeradores.EnumEstadoVeiculo pEstadoVeiculo)
+        {
+            try
+            { 
+                aTbVeiculoDAO.AlterarEstado(this, pEstadoVeiculo);
             }
             catch (Exception ex)
             {

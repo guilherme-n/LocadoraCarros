@@ -33,7 +33,6 @@
             this.locacaoDeVeiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolucaoDeVeiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservaDeVeiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelamentoDeReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reciboDeRecebimentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.montadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +73,6 @@
             this.locacaoDeVeiculoToolStripMenuItem,
             this.devolucaoDeVeiculoToolStripMenuItem,
             this.reservaDeVeiculoToolStripMenuItem,
-            this.cancelamentoDeReservaToolStripMenuItem,
             this.reciboDeRecebimentoToolStripMenuItem});
             this.servicosToolStripMenuItem.Name = "servicosToolStripMenuItem";
             this.servicosToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
@@ -83,33 +81,28 @@
             // locacaoDeVeiculoToolStripMenuItem
             // 
             this.locacaoDeVeiculoToolStripMenuItem.Name = "locacaoDeVeiculoToolStripMenuItem";
-            this.locacaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.locacaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.locacaoDeVeiculoToolStripMenuItem.Text = "&Locação de veículo";
             this.locacaoDeVeiculoToolStripMenuItem.Click += new System.EventHandler(this.locacaoDeVeiculoToolStripMenuItem_Click);
             // 
             // devolucaoDeVeiculoToolStripMenuItem
             // 
             this.devolucaoDeVeiculoToolStripMenuItem.Name = "devolucaoDeVeiculoToolStripMenuItem";
-            this.devolucaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.devolucaoDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.devolucaoDeVeiculoToolStripMenuItem.Text = "Devolução de veículo";
             this.devolucaoDeVeiculoToolStripMenuItem.Click += new System.EventHandler(this.devolucaoDeVeiculoToolStripMenuItem_Click);
             // 
             // reservaDeVeiculoToolStripMenuItem
             // 
             this.reservaDeVeiculoToolStripMenuItem.Name = "reservaDeVeiculoToolStripMenuItem";
-            this.reservaDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.reservaDeVeiculoToolStripMenuItem.Text = "Reserva de veiculo";
-            // 
-            // cancelamentoDeReservaToolStripMenuItem
-            // 
-            this.cancelamentoDeReservaToolStripMenuItem.Name = "cancelamentoDeReservaToolStripMenuItem";
-            this.cancelamentoDeReservaToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.cancelamentoDeReservaToolStripMenuItem.Text = "Cancelamento de reserva";
+            this.reservaDeVeiculoToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.reservaDeVeiculoToolStripMenuItem.Text = "Reserva de veículo";
+            this.reservaDeVeiculoToolStripMenuItem.Click += new System.EventHandler(this.reservaDeVeiculoToolStripMenuItem_Click);
             // 
             // reciboDeRecebimentoToolStripMenuItem
             // 
             this.reciboDeRecebimentoToolStripMenuItem.Name = "reciboDeRecebimentoToolStripMenuItem";
-            this.reciboDeRecebimentoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.reciboDeRecebimentoToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.reciboDeRecebimentoToolStripMenuItem.Text = "Recibo de recebimento";
             // 
             // cadastrosToolStripMenuItem
@@ -171,13 +164,14 @@
             // carrosAlugadosToolStripMenuItem
             // 
             this.carrosAlugadosToolStripMenuItem.Name = "carrosAlugadosToolStripMenuItem";
-            this.carrosAlugadosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.carrosAlugadosToolStripMenuItem.Text = "Carros alugados";
+            this.carrosAlugadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.carrosAlugadosToolStripMenuItem.Text = "Veículos alugados";
+            this.carrosAlugadosToolStripMenuItem.Click += new System.EventHandler(this.carrosAlugadosToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
             // perfilToolStripMenuItem
@@ -192,14 +186,14 @@
             // alteracaoDeSenhaToolStripMenuItem
             // 
             this.alteracaoDeSenhaToolStripMenuItem.Name = "alteracaoDeSenhaToolStripMenuItem";
-            this.alteracaoDeSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alteracaoDeSenhaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.alteracaoDeSenhaToolStripMenuItem.Text = "Alteração de senha";
             this.alteracaoDeSenhaToolStripMenuItem.Click += new System.EventHandler(this.alteracaoDeSenhaToolStripMenuItem_Click);
             // 
             // trocarDeUsuarioToolStripMenuItem
             // 
             this.trocarDeUsuarioToolStripMenuItem.Name = "trocarDeUsuarioToolStripMenuItem";
-            this.trocarDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocarDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.trocarDeUsuarioToolStripMenuItem.Text = "Trocar de usuário";
             this.trocarDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.TrocarDeUsuarioToolStripMenuItem_Click);
             // 
@@ -215,14 +209,14 @@
             // versaoToolStripMenuItem
             // 
             this.versaoToolStripMenuItem.Name = "versaoToolStripMenuItem";
-            this.versaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.versaoToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.versaoToolStripMenuItem.Text = "Versão";
             this.versaoToolStripMenuItem.Click += new System.EventHandler(this.versaoToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
@@ -264,7 +258,6 @@
         private System.Windows.Forms.ToolStripMenuItem versaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolucaoDeVeiculoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservaDeVeiculoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelamentoDeReservaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reciboDeRecebimentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatoriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carrosAlugadosToolStripMenuItem;

@@ -30,6 +30,11 @@ namespace DAO
             return Conexao.ExecuteReader("SPSel_TbAluguel", vListOfSqlParameter);
         }
 
+        public DataSet RelatorioVeiculosAlugados()
+        {
+            return Conexao.Fill("SPRel_VeiculosAlugados", new List<SqlParameter>());
+        }
+
         public void Excluir(AluguelEntidade pAluguelEntidade)
         {
             List<SqlParameter> vListOfSqlParameter = new List<SqlParameter>();

@@ -101,6 +101,7 @@ namespace View
 
                         ClienteEntidade vClienteEntidade = new ClienteEntidade();
                         vClienteEntidade.iId = Int32.Parse(GridDados.SelectedRows[0].Cells["iId"].Value.ToString());
+                        vClienteEntidade = ClienteEntidade.Consultar().First();
                         vClienteEntidade.Excluir();
 
                         MessageBox.Show("Cliente excluído com sucesso."

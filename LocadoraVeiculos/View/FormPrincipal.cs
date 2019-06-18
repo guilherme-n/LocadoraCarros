@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
+using LocadoraVeiculos.Relatorios;
+using Model;
 using Util;
 
 namespace View
@@ -90,6 +93,55 @@ namespace View
         {
             FormSobre vFormSobre = new FormSobre();
             vFormSobre.ShowDialog(this);
+        }
+
+        private void reservaDeVeiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormReservaVeiculo vFormReservaVeiculo = new FormReservaVeiculo();
+            vFormReservaVeiculo.ShowDialog(this);
+        }
+
+        private void carrosAlugadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+
+                RelatorioCarrosAlugados vRelatorioCarrosAlugados = new RelatorioCarrosAlugados();
+                DataSet vDataSet = new DataSet();
+
+                vDataSet = AluguelEntidade.RelatorioVeiculosAlugados();
+
+                vRelatorioCarrosAlugados.SetDataSource(vDataSet.Tables[0]);
+
+                PrintDialog vPrintDialog = new PrintDialog();
+                vPrintDialog.UseEXDialog = true;
+                if (vPrintDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                {
+                    return;
+                }
+
+                vRelatorioCarrosAlugados.PrintToPrinter(vPrintDialog.PrinterSettings.Copies
+                                                         , vPrintDialog.PrinterSettings.Collate
+                                                         , vPrintDialog.PrinterSettings.FromPage
+                                                         , vPrintDialog.PrinterSettings.ToPage);
+
+                MessageBox.Show("Relatório impresso com sucesso"
+                                , "Informação"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Information);
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao logar no sistema"
+                                , "Erro"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
     }
 }

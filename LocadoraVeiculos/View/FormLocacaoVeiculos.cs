@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Model;
@@ -8,6 +9,9 @@ namespace View
 {
     public partial class FormLocacaoVeiculos : FormPadrao
     {
+
+        private List<VeiculoEntidade> aListVeiculoEntidade;
+
         public FormLocacaoVeiculos()
         {
             InitializeComponent();
@@ -16,6 +20,12 @@ namespace View
         private void FormLocacaoVeiculos_Load(object sender, EventArgs e)
         {
             CboFormaPagamento.SelectedIndex = 0;
+
+            //carrega o combo de veiculos
+            CboVeiculo.ValueMember = "iId";
+            CboVeiculo.DisplayMember = "vModeloEPlaca";
+            aListVeiculoEntidade = VeiculoEntidade.Consultar(Enumeradores.EnumEstadoVeiculo.DISPONIVEL);
+            CboVeiculo.DataSource = aListVeiculoEntidade;
 
             //carrega o combo de marcas
             CboMarca.ValueMember = "iId";
@@ -40,7 +50,10 @@ namespace View
 
             CboVeiculo.ValueMember = "iId";
             CboVeiculo.DisplayMember = "vModeloEPlaca";
-            CboVeiculo.DataSource = VeiculoEntidade.Consultar(vVeiculoEntidade);
+
+            //carrega o combo apenas com veiculos da montadora selecionada
+            CboVeiculo.DataSource = aListVeiculoEntidade.
+                Where(veiculo => veiculo.vMontadoraEntidade.iId == Int32.Parse(CboMarca.SelectedValue.ToString())).ToArray();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -87,6 +100,11 @@ namespace View
         {
             try
             {
+                if (!validarCamposObrigatorios())
+                {
+                    return;
+                }
+
                 AluguelEntidade vAluguelEntidade = new AluguelEntidade();
                 vAluguelEntidade.vMontadoraEntidade.iId = Int32.Parse(CboMarca.SelectedValue.ToString());
                 vAluguelEntidade.vVeiculoEntidade.iId = Int32.Parse(CboVeiculo.SelectedValue.ToString());
@@ -118,6 +136,42 @@ namespace View
                                , MessageBoxButtons.OK
                                , MessageBoxIcon.Error);
             }
+        }
+
+        private bool validarCamposObrigatorios()
+        {
+            if (CboVeiculo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Favor informar o veículo a ser alugado"
+                                , "Aviso"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Warning);
+                CboVeiculo.Focus();
+                return false;
+            }
+
+            if (CboCliente.SelectedIndex < 0)
+            {
+                MessageBox.Show("Favor informar o cliente"
+                                , "Aviso"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Warning);
+                CboCliente.Focus();
+                return false;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(TxtDiaria.Text))
+            {
+                MessageBox.Show("Favor informar a quantidade de diárias"
+                                , "Aviso"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Warning);
+                TxtDiaria.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }

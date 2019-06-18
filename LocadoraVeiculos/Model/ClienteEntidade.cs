@@ -10,6 +10,11 @@ namespace Model
         private static ClienteDAO aClienteDAO = new ClienteDAO();
         private static EnderecoDAO aEnderecoDAO = new EnderecoDAO();
 
+        public ClienteEntidade()
+        {
+            vEnderecoEntidade = new EnderecoEntidade();
+        }
+
         public int iId { get; set; }
         public string vNome { get; set; }
         public string vCpf { get; set; }
@@ -100,6 +105,11 @@ namespace Model
             return vListClienteEntidade;
         }
 
+        public static List<ClienteEntidade> Consultar()
+        {
+            return Consultar(new ClienteEntidade());
+        }
+
         public void Salvar()
         {
             try
@@ -130,6 +140,7 @@ namespace Model
         {
             try
             {
+
                 aEnderecoDAO.Excluir(this.vEnderecoEntidade);
                 aClienteDAO.Excluir(this);
             }

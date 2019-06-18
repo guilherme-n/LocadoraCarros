@@ -38,10 +38,10 @@ namespace View
                 if (GridDados.Columns[e.ColumnIndex].Name.Equals("Devolver"))
                 {
                     DialogResult vResposta = MessageBox.Show("Deseja realmente devolver este veículo?"
-                                                                , "Pergunta"
-                                                                , MessageBoxButtons.YesNo
-                                                                , MessageBoxIcon.Question
-                                                                , MessageBoxDefaultButton.Button2);
+                                                            , "Pergunta"
+                                                            , MessageBoxButtons.YesNo
+                                                            , MessageBoxIcon.Question
+                                                            , MessageBoxDefaultButton.Button2);
 
                     if (vResposta == DialogResult.No)
                     {
@@ -50,6 +50,7 @@ namespace View
 
                     AluguelEntidade vAluguelEntidade = new AluguelEntidade();
                     vAluguelEntidade.iId = Int32.Parse(GridDados.Rows[e.RowIndex].Cells["iId"].Value.ToString());
+                    vAluguelEntidade.vVeiculoEntidade.iId = Int32.Parse(GridDados.Rows[e.RowIndex].Cells["iIdVeiculo"].Value.ToString());
                     vAluguelEntidade.DevolverVeiculo();
 
                     MessageBox.Show("Veículo devolvido com sucesso."

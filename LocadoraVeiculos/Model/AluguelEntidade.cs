@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using DAO;
+using Util;
 
 namespace Model
 {
@@ -42,6 +44,14 @@ namespace Model
             get
             {
                 return vClienteEntidade.vNomeECpf;
+            }
+        }
+
+        public int iIdVeiculo
+        {
+            get
+            {
+                return vVeiculoEntidade.iId;
             }
         }
 
@@ -131,11 +141,16 @@ namespace Model
             return Consultar(new AluguelEntidade());
         }
 
-        public static List<AluguelEntidade> Consultar(bool pApenasDisponiveis)
+        public static List<AluguelEntidade> Consultar(bool pEmAndamento)
         {
-            DbDataReader vDbDataReader = aAluguelDAO.Consultar(pApenasDisponiveis);
+            DbDataReader vDbDataReader = aAluguelDAO.Consultar(pEmAndamento);
 
             return MontarAluguelEntidade(vDbDataReader);
+        }
+
+        public static DataSet RelatorioVeiculosAlugados()
+        {
+            return aAluguelDAO.RelatorioVeiculosAlugados();
         }
 
         public void Salvar()
@@ -163,7 +178,22 @@ namespace Model
 
         public void DevolverVeiculo()
         {
-            aAluguelDAO.DevolverVeiculo(this);
+            try
+            {
+                aAluguelDAO.DevolverVeiculo(this);
+
+                Conexao.CloseConnection();
+
+                vVeiculoEntidade.AlterarEstado(Enumeradores.EnumEstadoVeiculo.DISPONIVEL);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("excluir o registro");
+            }
+            finally
+            {
+                Conexao.CloseConnection();
+            }
         }
 
         public void Excluir(AluguelEntidade pAluguelEntidade)

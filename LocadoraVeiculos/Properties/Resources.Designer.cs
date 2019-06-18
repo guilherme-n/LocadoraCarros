@@ -63,6 +63,16 @@ namespace LocadoraVeiculos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelar_reserva {
+            get {
+                object obj = ResourceManager.GetObject("cancelar_reserva", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carro2 {
             get {
                 object obj = ResourceManager.GetObject("carro2", resourceCulture);
@@ -96,6 +106,16 @@ namespace LocadoraVeiculos.Properties {
         internal static System.Drawing.Bitmap devolver {
             get {
                 object obj = ResourceManager.GetObject("devolver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reservar {
+            get {
+                object obj = ResourceManager.GetObject("reservar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

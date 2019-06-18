@@ -72,6 +72,34 @@ namespace DAO
             vSqlCommand.ExecuteNonQuery();
         }
 
+        public static DataSet Fill(string pProcedure, List<SqlParameter> pListSqlParameter)
+        {
+            if (aSqlConnection.State == ConnectionState.Closed)
+            {
+                aSqlConnection.Open();
+            }
+
+            SqlCommand vSqlCommand = new SqlCommand();
+            vSqlCommand.Connection = aSqlConnection;
+            vSqlCommand.CommandText = pProcedure;
+            vSqlCommand.CommandType = CommandType.StoredProcedure;
+
+            foreach (SqlParameter vSqlParameter in pListSqlParameter)
+            {
+                vSqlCommand.Parameters.Add(vSqlParameter);
+            }
+
+            SqlDataAdapter vSqlDataAdapter = new SqlDataAdapter();
+
+            vSqlDataAdapter.SelectCommand = vSqlCommand;
+
+            DataSet vDataSet = new DataSet();
+
+            vSqlDataAdapter.Fill(vDataSet);
+
+            return vDataSet;
+        }
+
         public static SqlParameter CriarParametro(string pNomeParametro, DbType pTipo, object pValor)
         {
             SqlParameter vSqlParameter = new SqlParameter();

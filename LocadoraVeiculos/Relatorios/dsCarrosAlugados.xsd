@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCarrosAlugados" targetNamespace="http://tempuri.org/dsCarrosAlugados.xsd" xmlns:mstns="http://tempuri.org/dsCarrosAlugados.xsd" xmlns="http://tempuri.org/dsCarrosAlugados.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCarrosAlugados" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCarrosAlugados" msprop:Generator_UserDSName="dsCarrosAlugados">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsCarrosAlugados" msprop:Generator_TableClassName="dsCarrosAlugadosDataTable" msprop:Generator_TableVarName="tabledsCarrosAlugados" msprop:Generator_RowChangedName="dsCarrosAlugadosRowChanged" msprop:Generator_TablePropName="_dsCarrosAlugados" msprop:Generator_RowDeletingName="dsCarrosAlugadosRowDeleting" msprop:Generator_RowChangingName="dsCarrosAlugadosRowChanging" msprop:Generator_RowEvHandlerName="dsCarrosAlugadosRowChangeEventHandler" msprop:Generator_RowDeletedName="dsCarrosAlugadosRowDeleted" msprop:Generator_RowClassName="dsCarrosAlugadosRow" msprop:Generator_UserTableName="dsCarrosAlugados" msprop:Generator_RowEvArgName="dsCarrosAlugadosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vVeiculo" msprop:Generator_ColumnVarNameInTable="columnvVeiculo" msprop:Generator_ColumnPropNameInRow="vVeiculo" msprop:Generator_ColumnPropNameInTable="vVeiculoColumn" msprop:Generator_UserColumnName="vVeiculo" type="xs:string" minOccurs="0" />
+              <xs:element name="vCliente" msprop:Generator_ColumnVarNameInTable="columnvCliente" msprop:Generator_ColumnPropNameInRow="vCliente" msprop:Generator_ColumnPropNameInTable="vClienteColumn" msprop:Generator_UserColumnName="vCliente" type="xs:string" minOccurs="0" />
+              <xs:element name="dtDataLocacao" msprop:Generator_ColumnVarNameInTable="columndtDataLocacao" msprop:Generator_ColumnPropNameInRow="dtDataLocacao" msprop:Generator_ColumnPropNameInTable="dtDataLocacaoColumn" msprop:Generator_UserColumnName="dtDataLocacao" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="dtDataEntrega" msprop:Generator_ColumnVarNameInTable="columndtDataEntrega" msprop:Generator_ColumnPropNameInRow="dtDataEntrega" msprop:Generator_ColumnPropNameInTable="dtDataEntregaColumn" msprop:Generator_UserColumnName="dtDataEntrega" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="vPlaca" msprop:Generator_ColumnVarNameInTable="columnvPlaca" msprop:Generator_ColumnPropNameInRow="vPlaca" msprop:Generator_ColumnPropNameInTable="vPlacaColumn" msprop:Generator_UserColumnName="vPlaca" type="xs:string" minOccurs="0" />
+              <xs:element name="vCpf" msprop:Generator_ColumnVarNameInTable="columnvCpf" msprop:Generator_ColumnPropNameInRow="vCpf" msprop:Generator_ColumnPropNameInTable="vCpfColumn" msprop:Generator_UserColumnName="vCpf" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
