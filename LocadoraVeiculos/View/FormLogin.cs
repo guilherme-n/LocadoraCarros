@@ -12,11 +12,6 @@ namespace View
             InitializeComponent();
         }
 
-        private void BtnSair_Click(object sender, EventArgs e)
-        {
-            this.Owner.Close();
-        }
-
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
             try
@@ -61,7 +56,9 @@ namespace View
                 CboLogin.DisplayMember = "vLogin";
 
                 //POLIMORFISMO, em tempo de execucao, o sistema sabe que o metodo consultar é da classe vendedor
-                CboLogin.DataSource = VendedorEntidade.Consultar();
+                var vendedor = new VendedorEntidade();
+                vendedor.bAtivo = true;
+                CboLogin.DataSource = VendedorEntidade.Consultar(vendedor);
 
                 //coloca o foco para o campo da senha
                 this.ActiveControl = TxtSenha;
@@ -98,6 +95,11 @@ namespace View
             }
 
                 return true;
+        }
+
+        private void BtnSair_Click(object sender, EventArgs e)
+        {
+            this.Owner.Close();
         }
     }
 }

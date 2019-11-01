@@ -29,6 +29,10 @@ namespace DAO
             {
                 vListOfSqlParameter.Add(Conexao.CriarParametro("@pvSenha", DbType.String, pVendedorEntidade.vSenha));
             }
+            if (pVendedorEntidade.bAtivo != null)
+            {
+                vListOfSqlParameter.Add(Conexao.CriarParametro("@pbAtivo", DbType.Boolean, pVendedorEntidade.bAtivo));
+            }
 
             return Conexao.ExecuteReader("SPSel_TbVendedor", vListOfSqlParameter);
         }

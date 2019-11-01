@@ -22,7 +22,6 @@ namespace Model
         public string vCor { get; set; }
         public decimal dValorLocacao { get; set; }
         public string vPlaca { get; set; }
-        public bool bAlugado { get; set; }
         public long iQuilometragem { get; set; }
         public Enumeradores.EnumEstadoVeiculo iEstadoVeiculo { get; set; }
 
@@ -40,21 +39,6 @@ namespace Model
             get
             {
                 return vModelo + " - " + vPlaca;
-            }
-        }
-
-        public string bDisponivel
-        {
-            get
-            {
-                if(this.bAlugado)
-                {
-                    return "Não";
-                }
-                else
-                {
-                    return "Sim";
-                }
             }
         }
 

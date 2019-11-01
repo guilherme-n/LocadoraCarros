@@ -71,7 +71,7 @@ namespace View
                 if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vVeiculoEntidade.iId = aVeiculoEntidade.iId;
-                    vVeiculoEntidade.bAlugado = aVeiculoEntidade.bAlugado;
+                    vVeiculoEntidade.iEstadoVeiculo = Enumeradores.EnumEstadoVeiculo.DISPONIVEL;
                 }
 
                 vVeiculoEntidade.Salvar();

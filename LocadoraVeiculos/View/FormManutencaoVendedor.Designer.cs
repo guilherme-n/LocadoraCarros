@@ -31,7 +31,7 @@
             this.GroupDados = new System.Windows.Forms.GroupBox();
             this.TxtSalario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GroupVendedor = new System.Windows.Forms.GroupBox();
             this.RbtInativo = new System.Windows.Forms.RadioButton();
             this.RbtAtivo = new System.Windows.Forms.RadioButton();
             this.DtDataDemissao = new System.Windows.Forms.DateTimePicker();
@@ -53,14 +53,14 @@
             this.BtnCadastrar = new System.Windows.Forms.Button();
             this.BtnFechar = new System.Windows.Forms.Button();
             this.GroupDados.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GroupVendedor.SuspendLayout();
             this.SuspendLayout();
             // 
             // GroupDados
             // 
             this.GroupDados.Controls.Add(this.TxtSalario);
             this.GroupDados.Controls.Add(this.label8);
-            this.GroupDados.Controls.Add(this.groupBox1);
+            this.GroupDados.Controls.Add(this.GroupVendedor);
             this.GroupDados.Controls.Add(this.DtDataDemissao);
             this.GroupDados.Controls.Add(this.LblDataDemissao);
             this.GroupDados.Controls.Add(this.TxtPercentualComissao);
@@ -101,22 +101,21 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Salário";
             // 
-            // groupBox1
+            // GroupVendedor
             // 
-            this.groupBox1.Controls.Add(this.RbtInativo);
-            this.groupBox1.Controls.Add(this.RbtAtivo);
-            this.groupBox1.Location = new System.Drawing.Point(410, 126);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(163, 42);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado";
-            this.groupBox1.Visible = false;
+            this.GroupVendedor.Controls.Add(this.RbtInativo);
+            this.GroupVendedor.Controls.Add(this.RbtAtivo);
+            this.GroupVendedor.Location = new System.Drawing.Point(410, 126);
+            this.GroupVendedor.Name = "GroupVendedor";
+            this.GroupVendedor.Size = new System.Drawing.Size(163, 42);
+            this.GroupVendedor.TabIndex = 18;
+            this.GroupVendedor.TabStop = false;
+            this.GroupVendedor.Text = "Estado";
+            this.GroupVendedor.Visible = false;
             // 
             // RbtInativo
             // 
             this.RbtInativo.AutoSize = true;
-            this.RbtInativo.Enabled = false;
             this.RbtInativo.Location = new System.Drawing.Point(69, 19);
             this.RbtInativo.Name = "RbtInativo";
             this.RbtInativo.Size = new System.Drawing.Size(57, 17);
@@ -128,7 +127,6 @@
             // 
             this.RbtAtivo.AutoSize = true;
             this.RbtAtivo.Checked = true;
-            this.RbtAtivo.Enabled = false;
             this.RbtAtivo.Location = new System.Drawing.Point(14, 19);
             this.RbtAtivo.Name = "RbtAtivo";
             this.RbtAtivo.Size = new System.Drawing.Size(49, 17);
@@ -312,8 +310,8 @@
             this.Load += new System.EventHandler(this.FormManutencaoVendedor_Load);
             this.GroupDados.ResumeLayout(false);
             this.GroupDados.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GroupVendedor.ResumeLayout(false);
+            this.GroupVendedor.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -341,7 +339,7 @@
         private System.Windows.Forms.Label LblDataDemissao;
         private System.Windows.Forms.RadioButton RbtInativo;
         private System.Windows.Forms.RadioButton RbtAtivo;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GroupVendedor;
         private System.Windows.Forms.TextBox TxtSalario;
         private System.Windows.Forms.Label label8;
     }

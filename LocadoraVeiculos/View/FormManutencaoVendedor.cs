@@ -24,7 +24,6 @@ namespace View
                 {
                     LblDataDemissao.Visible = true;
                 }
-
             }
         }
 
@@ -32,11 +31,7 @@ namespace View
         {
             try
             {
-
-                if (!validarCamposObrigatorios())
-                {
-                    return;
-                }
+                if (!validarCamposObrigatorios()){ return; }
 
                 VendedorEntidade vVendedorEntidade = new VendedorEntidade();
 
@@ -53,7 +48,7 @@ namespace View
                 {
                     vVendedorEntidade.vSenha = TxtSenha.Text;
                 }
-                else if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
+                else if (aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vVendedorEntidade.iId = aVendedorEntidade.iId;
                     vVendedorEntidade.vSenha = aVendedorEntidade.vSenha;
@@ -65,7 +60,6 @@ namespace View
                                , "Informacao"
                                , MessageBoxButtons.OK
                                , MessageBoxIcon.Information);
-
 
                 //fecha a tela
                 this.Close();
@@ -88,6 +82,8 @@ namespace View
         {
             if (aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
             {
+                GroupVendedor.Visible = true;
+
                 TxtNome.Text = aVendedorEntidade.vNome;
                 TxtCpf.Text = aVendedorEntidade.vCpf;
                 TxtLogin.Text = aVendedorEntidade.vLogin;
@@ -96,8 +92,8 @@ namespace View
                 TxtPercentualComissao.Text = aVendedorEntidade.iPercentualComissao.ToString();
                 TxtSalario.Text = aVendedorEntidade.dSalario.ToString();
                 DtDataDemissao.Value = aVendedorEntidade.dtDataDemissao;
-                RbtAtivo.Checked = aVendedorEntidade.bAtivo;
-                RbtInativo.Checked = !aVendedorEntidade.bAtivo;
+                RbtAtivo.Checked = aVendedorEntidade.bAtivo ?? false;
+                RbtInativo.Checked = !aVendedorEntidade.bAtivo ?? false;
 
                 TxtSenha.Enabled = false;
                 TxtConfirmacaoSenha.Enabled = false;
@@ -138,24 +134,27 @@ namespace View
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(TxtSenha.Text))
+            if (aEstadoForm == Enumeradores.EnumEstadoForm.CADASTRO)
             {
-                MessageBox.Show("Favor informar a senha"
-                                , "Aviso"
-                                , MessageBoxButtons.OK
-                                , MessageBoxIcon.Warning);
-                TxtSenha.Focus();
-                return false;
-            }
+                if (string.IsNullOrWhiteSpace(TxtSenha.Text))
+                {
+                    MessageBox.Show("Favor informar a senha"
+                                    , "Aviso"
+                                    , MessageBoxButtons.OK
+                                    , MessageBoxIcon.Warning);
+                    TxtSenha.Focus();
+                    return false;
+                }
 
-            if (!TxtSenha.Text.Equals(TxtConfirmacaoSenha.Text))
-            {
-                MessageBox.Show("As senhas não são iguais"
-                                , "Aviso"
-                                , MessageBoxButtons.OK
-                                , MessageBoxIcon.Warning);
-                TxtSenha.Focus();
-                return false;
+                if (!TxtSenha.Text.Equals(TxtConfirmacaoSenha.Text))
+                {
+                    MessageBox.Show("As senhas não são iguais"
+                                    , "Aviso"
+                                    , MessageBoxButtons.OK
+                                    , MessageBoxIcon.Warning);
+                    TxtSenha.Focus();
+                    return false;
+                }
             }
 
             if (string.IsNullOrWhiteSpace(TxtPercentualComissao.Text))

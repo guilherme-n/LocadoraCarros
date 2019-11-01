@@ -9,7 +9,7 @@ namespace Model
         public string vNome { get; set; }
         public string vLogin { get; set; }
         public string vSenha { get; set; }
-        public bool bAtivo { get; set; }
+        public bool? bAtivo { get; set; }
 
         //public static List<UsuarioEntidade> Consultar(UsuarioEntidade pUsuarioEntidade)
         //{

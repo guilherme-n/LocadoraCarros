@@ -54,11 +54,6 @@ namespace View
 
         }
 
-        private void BtnFechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void GridDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             switch (GridDados.Columns[e.ColumnIndex].Name)
@@ -84,42 +79,12 @@ namespace View
                                         , MessageBoxIcon.Error);
                     }
                     break;
-
-                case "Excluir":
-                    try
-                    {
-                        DialogResult vResposta = MessageBox.Show("Deseja realmente excluir este vendedor?"
-                                                                , "Pergunta"
-                                                                , MessageBoxButtons.YesNo
-                                                                , MessageBoxIcon.Question
-                                                                , MessageBoxDefaultButton.Button2);
-
-                        if(vResposta == DialogResult.No)
-                        {
-                            return;
-                        }
-
-                        VendedorEntidade vVendedorEntidade = new VendedorEntidade();
-                        vVendedorEntidade.iId = Int32.Parse(GridDados.Rows[e.RowIndex].Cells["iId"].Value.ToString());
-                        vVendedorEntidade.Excluir();
-
-                        MessageBox.Show("Vendedor excluído com sucesso."
-                                        , "Informação"
-                                        , MessageBoxButtons.OK
-                                        , MessageBoxIcon.Information);
-
-                        CarregarGrid();
-
-                    } catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao " + ex.Message
-                                        , "Erro"
-                                        , MessageBoxButtons.OK
-                                        , MessageBoxIcon.Error);
-                    }
-
-                    break;
             }
+        }
+
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

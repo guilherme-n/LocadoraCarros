@@ -20,7 +20,7 @@ namespace Model
         {
             VendedorEntidade vVendedorEntidade = new VendedorEntidade();
 
-            vVendedorEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iId"], DBNull.Value)) ? pSqlDataReader["iId"] : 0);
+            vVendedorEntidade.iId = Convert.ToInt32((!object.ReferenceEquals(pSqlDataReader["iIdTbUsuario"], DBNull.Value)) ? pSqlDataReader["iIdTbUsuario"] : 0);
 
             vVendedorEntidade.vCpf = Convert.ToString((!object.ReferenceEquals(pSqlDataReader["vCpf"], DBNull.Value)) ? pSqlDataReader["vCpf"] : string.Empty);
 
