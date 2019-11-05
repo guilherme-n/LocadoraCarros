@@ -56,7 +56,7 @@ namespace View
 
                 vPaisEntidade.Salvar();
 
-                MessageBox.Show("Pais salvo com sucesso"
+                MessageBox.Show("País alterado com sucesso"
                                , "Informacao"
                                , MessageBoxButtons.OK
                                , MessageBoxIcon.Information);

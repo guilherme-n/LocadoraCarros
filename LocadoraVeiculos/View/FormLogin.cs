@@ -14,31 +14,38 @@ namespace View
 
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
+            Logar();
+        }
+
+        private void Logar()
+        {
             try
             {
-
-                if(!validarCamposObrigatorios()) { return; }
+                if (!validarCamposObrigatorios()) { return; }
 
                 string vLogin = CboLogin.Text;
                 string vSenha = TxtSenha.Text;
 
                 VendedorEntidade vVendedorEntidade = VendedorEntidade.ValidarLogin(vLogin, vSenha);
 
-                if(vVendedorEntidade == null)
+                if (vVendedorEntidade == null)
                 {
                     MessageBox.Show("Senha errada"
                                     , "Aviso"
                                     , MessageBoxButtons.OK
                                     , MessageBoxIcon.Warning);
                     TxtSenha.Focus();
-                } else
+                    TxtSenha.SelectAll();
+                }
+                else
                 {
                     RecursosGlobais.VendedorLogado = vVendedorEntidade;
 
                     this.Close();
                 }
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro ao logar no sistema"
                                 , "Erro"
@@ -100,6 +107,14 @@ namespace View
         private void BtnSair_Click(object sender, EventArgs e)
         {
             this.Owner.Close();
+        }
+
+        private void TxtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) 
+            {
+                Logar();
+            }
         }
     }
 }

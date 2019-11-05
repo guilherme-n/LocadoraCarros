@@ -89,6 +89,7 @@ namespace View
                 if(aEstadoForm == Enumeradores.EnumEstadoForm.ALTERACAO)
                 {
                     vClienteEntidade.iId = aClienteEntidade.iId;
+                    vEnderecoEntidade.iIdTbCliente = vClienteEntidade.iId;
                 }
 
                 vClienteEntidade.Salvar();
